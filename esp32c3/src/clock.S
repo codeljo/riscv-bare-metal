@@ -5,7 +5,6 @@
 #include "../include/registers.inc"
 
 .globl clock_set_cpu_freq
-.globl delay
 
 .text
 
@@ -39,19 +38,4 @@ clock_set_cpu_freq:
       li   t0, SYSTEM_CPU_PER_CONF_REG
       sw   t3, 0(t0)
 .LRET:
-      ret
-
-delay:
-      li   t1, 0
-      li   t2, 0
-      li   t3, 0
-      beq  a0, t1, .LDRET
-.LD0:
-      addi t1, t1, 1
-      bne  a0, t1, .LD0
-.LD1:
-      li   t1, 0
-      addi t2, t2, 1
-      bne  a0, t2, .LD0
-.LDRET:
       ret

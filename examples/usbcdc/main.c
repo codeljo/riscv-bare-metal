@@ -5,7 +5,6 @@
 #include "bmv.h"
 
 #define LED0 12
-#define DELAY 0xFF
 
 void setup() {
     gpio_output_func_select(LED0, 0x80);
@@ -18,7 +17,7 @@ int main() {
     
     while (1) {
 
-        delay(DELAY);
+        delay_ms(20);
         
         // toggle LED0 on data received, echo back any received data
         if (usb_cdc_is_read_ready()) {
