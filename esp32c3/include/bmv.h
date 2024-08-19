@@ -20,7 +20,9 @@ void interrupts_disable();
 
 // usb cdc
 char usb_cdc_read();
-void usb_cdc_write(char val);
+int usb_cdc_is_read_ready();
+int usb_cdc_write(char val);
+int usb_cdc_is_write_ready();
 void usb_cdc_write_flush();
 
 // wdt
