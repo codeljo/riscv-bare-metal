@@ -1,0 +1,15 @@
+#
+# git status -u --ignored
+#
+
+# ignore
+.vscode/
+
+*.o
+*.elf
+*.e2i
+*.bin
+
+# keep
+!bootloader*.bin
+!partition*.bin
