@@ -30,7 +30,7 @@ DIR_BUILD = ./build/
 
 # source
 SOURCES   = $(DIR_SRC)/startup.S $(DIR_SRC)/clock.S $(DIR_SRC)/gpio.S $(DIR_SRC)/interrupts.S $(DIR_SRC)/ivectors.S \
-			$(DIR_SRC)/systimer.S $(DIR_SRC)/usb.S $(DIR_SRC)/wdt.S
+			$(DIR_SRC)/pwm.S $(DIR_SRC)/systimer.S $(DIR_SRC)/usb.S $(DIR_SRC)/wdt.S
 SOURCES  += $(SOURCES_EXTRA)
 
 # output file names

@@ -8,8 +8,6 @@
 .globl delay_us
 .globl delay_ms
 
-# TODO: delay_us, delay_ms only support the default cpu clock(20 MHz)
-
 .equ SYSTIMER_TIMER_UNIT0_VALUE_VALID, 29
 .equ SYSTIMER_TIMER_UNIT0_UPDATE,      30
 
@@ -55,7 +53,7 @@ delay_us:
     sw   ra, 0(sp)
 
     # us to systicks
-    li   t0, 20
+    li   t0, 16
     mul  a0, a0, t0
 
     call delay_systicks
@@ -70,7 +68,7 @@ delay_ms:
     sw   ra, 0(sp)
 
     # ms to systicks
-    li   t0, 20000
+    li   t0, 16000
     mul  a0, a0, t0
 
     call delay_systicks

@@ -30,6 +30,30 @@ void interrupts_enable();
 void interrupts_disable();
 
 /////////////////////////////////////////////////////
+// pwm
+/////////////////////////////////////////////////////
+
+#define PWM_DIVISOR_MAX    0x3FF00
+#define PWM_RESOLUTION_MAX 0xE
+#define PWM_DUTY_MAX       0x3FFFF
+#define PWM_CLOCK_APB    1
+#define PWM_CLOCK_RCFAST 2
+#define PWM_CLOCK_XTAL   3
+
+typedef struct
+{
+    int pin;
+    int clock;
+    int divisor;
+    int resolution;
+    int duty;
+} pwm_config_t;
+
+void pwm_channel_0_init(pwm_config_t * config);
+void pwm_channel_1_init(pwm_config_t * config);
+int pwm_duty_update(int channel, int duty);
+
+/////////////////////////////////////////////////////
 // systimer
 /////////////////////////////////////////////////////
 
