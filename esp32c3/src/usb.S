@@ -3,7 +3,7 @@
 # USB Serial/JTAG Controller CDC-ACM
 #
 
-#include "../../esp32c3/include/registers.inc"
+#include "../include/registers.inc"
 
 .globl usb_cdc_read
 .globl usb_cdc_is_read_ready

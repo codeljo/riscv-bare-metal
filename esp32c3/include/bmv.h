@@ -6,7 +6,7 @@
 // clock
 /////////////////////////////////////////////////////
 
-/* set CPU clock frequency to 20, 80, or 160 MHz */
+/* set CPU clock frequency to 20, 40, 80, or 160 MHz */
 void clock_set_cpu_freq(int mhz);
 
 /////////////////////////////////////////////////////
