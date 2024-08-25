@@ -1,0 +1,14 @@
+#
+# Partition Table
+# https://docs.espressif.com/projects/esp-idf/en/v5.3/esp32c6/api-guides/partition-tables.html
+#
+# python gen_esp32part.py partitions.csv partitions.bin
+#
+# At a 0x10000 (64 KB) offset in the flash is the app labeled "factory". The bootloader will run this app by default.
+# 2 data regions defined in the partition table for storing NVS library partition, and PHY init data.
+#
+# Name,   Type, SubType, Offset,  Size, Flags
+#
+nvs,      data, nvs,     0x9000,  0x6000,
+phy_init, data, phy,     0xf000,  0x1000,
+factory,  app,  factory, 0x10000, 1M,
