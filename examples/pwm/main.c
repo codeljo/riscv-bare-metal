@@ -18,6 +18,11 @@ void setup() {
     pwm_config_t pwm_config_0 = { .pin=LED0, .clock=PWM_CLOCK_XTAL, .divisor=0x3F00, .resolution=PWM_RESOLUTION_MAX, .duty=0x7FFFFF };
     pwm_channel_0_init(&pwm_config_0);
     #endif
+
+    #ifdef ESP32H2
+    pwm_config_t pwm_config_0 = { .pin=LED0, .clock=PWM_CLOCK_XTAL, .divisor=0x1F00, .resolution=PWM_RESOLUTION_MAX, .duty=0x7FFFFF };
+    pwm_channel_0_init(&pwm_config_0);
+    #endif
 }
 
 int main() {
