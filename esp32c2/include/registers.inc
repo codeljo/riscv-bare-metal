@@ -599,6 +599,50 @@
 ######################################################
 
 ######################################################
+# Debug Assistant (ASSIST_DEBUG)
+# (TRM 266)
+######################################################
+.equ ASSIST_DEBUG_BASE,                          0x600CE000
+# Monitor configuration registers
+.equ ASSIST_DEBUG_CORE_0_SP_MONITOR_EN_REG,      0x600CE000
+.equ ASSIST_DEBUG_CORE_0_SP_MIN_REG,             0x600CE010
+.equ ASSIST_DEBUG_CORE_0_SP_MAX_REG,             0x600CE014
+.equ ASSIST_DEBUG_CORE_0_SP_PC_REG,              0x600CE018
+# Interrupt configuration registers
+.equ ASSIST_DEBUG_CORE_0_INTR_RAW_REG,           0x600CE004
+.equ ASSIST_DEBUG_CORE_0_INTR_ENA_REG,           0x600CE008
+.equ ASSIST_DEBUG_CORE_0_INTR_CLR_REG,           0x600CE00C
+# PC logging configuration register
+.equ ASSIST_DEBUG_CORE_0_RCD_EN_REG,             0x600CE01C
+# PC logging status registers
+.equ ASSIST_DEBUG_CORE_0_RCD_PDEBUGPC_REG,       0x600CE020
+.equ ASSIST_DEBUG_CORE_0_RCD_PDEBUGSP_REG,       0x600CE024
+# CPU Status Registers
+.equ ASSIST_DEBUG_CORE_0_LASTPC_BEFORE_EXCEPTION_REG, 0x600CE028
+.equ ASSIST_DEBUG_CORE_0_DEBUG_MODE_REG,         0x600CE02C
+# Clock gate register
+.equ ASSIST_DEBUG_CLOCK_GATE_REG,                0x600CE030
+# Version register
+.equ ASSIST_DEBUG_DATE_REG,                      0x600CE1FC
+######################################################
+
+######################################################
+# ECC Hardware Accelerator (ECC)
+# (TRM 279)
+######################################################
+.equ ECC_BASE,                         0x6003E000
+# Interrupt registers
+.equ ECC_MULT_INT_RAW_REG,             0x6003E00C
+.equ ECC_MULT_INT_ST_REG,              0x6003E010
+.equ ECC_MULT_INT_ENA_REG,             0x6003E014
+.equ ECC_MULT_INT_CLR_REG,             0x6003E018
+# Configuration register
+.equ ECC_MULT_CONF_REG,                0x6003E01C
+# Version register
+.equ ECC_MULT_DATE_REG,                0x6003E0FC
+######################################################
+
+######################################################
 # Random Number Generator (RNG)
 # (TRM 302)
 ######################################################
