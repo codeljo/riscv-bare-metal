@@ -643,10 +643,202 @@
 ######################################################
 
 ######################################################
+# SHA Accelerator (SHA)
+# (TRM 287)
+######################################################
+.equ SHA_BASE,                 0x6003B000
+# Control/Status registers
+.equ SHA_CONTINUE_REG,         0x6003B014
+.equ SHA_BUSY_REG,             0x6003B018
+.equ SHA_DMA_START_REG,        0x6003B01C
+.equ SHA_START_REG,            0x6003B010
+.equ SHA_DMA_CONTINUE_REG,     0x6003B020
+.equ SHA_INT_CLEAR_REG,        0x6003B024
+.equ SHA_INT_ENA_REG,          0x6003B028
+# Versoin Register
+.equ SHA_DATE_REG,             0x6003B02C
+# Configuration Registers
+.equ SHA_MODE_REG,             0x6003B000
+# Data Registers
+.equ SHA_DMA_BLOCK_NUM_REG,    0x6003B00C
+.equ SHA_H_0_REG,              0x6003B040
+.equ SHA_H_1_REG,              0x6003B044
+.equ SHA_H_2_REG,              0x6003B048
+.equ SHA_H_3_REG,              0x6003B04C
+.equ SHA_H_4_REG,              0x6003B050
+.equ SHA_H_5_REG,              0x6003B054
+.equ SHA_H_6_REG,              0x6003B058
+.equ SHA_H_7_REG,              0x6003B05C
+.equ SHA_M_0_REG,              0x6003B080
+.equ SHA_M_1_REG,              0x6003B084
+.equ SHA_M_2_REG,              0x6003B088
+.equ SHA_M_3_REG,              0x6003B08C
+.equ SHA_M_4_REG,              0x6003B090
+.equ SHA_M_5_REG,              0x6003B094
+.equ SHA_M_6_REG,              0x6003B098
+.equ SHA_M_7_REG,              0x6003B09C
+.equ SHA_M_8_REG,              0x6003B0A0
+.equ SHA_M_9_REG,              0x6003B0A4
+.equ SHA_M_10_REG,             0x6003B0A8
+.equ SHA_M_11_REG,             0x6003B0AC
+.equ SHA_M_12_REG,             0x6003B0B0
+.equ SHA_M_13_REG,             0x6003B0B4
+.equ SHA_M_14_REG,             0x6003B0B8
+.equ SHA_M_15_REG,             0x6003B0BC
+######################################################
+
+######################################################
 # Random Number Generator (RNG)
 # (TRM 302)
 ######################################################
 .equ RNG_DATA_REG, 0x600260B0
+######################################################
+
+######################################################
+# UART Controller (UART)
+# (TRM 321)
+######################################################
+.equ UART0_BASE,               0x60000000
+.equ UART1_BASE,               0x60010000
+
+# UART0
+# FIFO Configuration
+.equ UART0_FIFO_REG,           0x60000000
+.equ UART0_MEM_CONF_REG,       0x60000060
+# UART Interrupt Register
+.equ UART0_INT_RAW_REG,        0x60000004
+.equ UART0_INT_ST_REG,         0x60000008
+.equ UART0_INT_ENA_REG,        0x6000000C
+.equ UART0_INT_CLR_REG,        0x60000010
+# Configuration Register
+.equ UART0_CLKDIV_REG,         0x60000014
+.equ UART0_RX_FILT_REG,        0x60000018
+.equ UART0_CONF0_REG,          0x60000020
+.equ UART0_CONF1_REG,          0x60000024
+.equ UART0_FLOW_CONF_REG,      0x60000034
+.equ UART0_SLEEP_CONF_REG,     0x60000038
+.equ UART0_SWFC_CONF0_REG,     0x6000003C
+.equ UART0_SWFC_CONF1_REG,     0x60000040
+.equ UART0_TXBRK_CONF_REG,     0x60000044
+.equ UART0_IDLE_CONF_REG,      0x60000048
+.equ UART0_RS485_CONF_REG,     0x6000004C
+.equ UART0_CLK_CONF_REG,       0x60000078
+# Status Register
+.equ UART0_STATUS_REG,         0x6000001C
+.equ UART0_MEM_TX_STATUS_REG,  0x60000064
+.equ UART0_MEM_RX_STATUS_REG,  0x60000068
+.equ UART0_FSM_STATUS_REG,     0x6000006C
+# Autobaud Register
+.equ UART0_LOWPULSE_REG,       0x60000028
+.equ UART0_HIGHPULSE_REG,      0x6000002C
+.equ UART0_RXD_CNT_REG,        0x60000030
+.equ UART0_POSPULSE_REG,       0x60000070
+.equ UART0_NEGPULSE_REG,       0x60000074
+# AT Escape Sequence Selection Configuration
+.equ UART0_AT_CMD_PRECNT_REG,  0x60000050
+.equ UART0_AT_CMD_POSTCNT_REG, 0x60000054
+.equ UART0_AT_CMD_GAPTOUT_REG, 0x60000058
+.equ UART0_AT_CMD_CHAR_REG,    0x6000005C
+# Version Register
+.equ UART0_DATE_REG,           0x6000007C
+.equ UART0_ID_REG,             0x60000080
+
+# UART1
+# FIFO Configuration
+.equ UART1_FIFO_REG,           0x60010000
+.equ UART1_MEM_CONF_REG,       0x60010060
+# UART Interrupt Register
+.equ UART1_INT_RAW_REG,        0x60010004
+.equ UART1_INT_ST_REG,         0x60010008
+.equ UART1_INT_ENA_REG,        0x6001000C
+.equ UART1_INT_CLR_REG,        0x60010010
+# Configuration Register
+.equ UART1_CLKDIV_REG,         0x60010014
+.equ UART1_RX_FILT_REG,        0x60010018
+.equ UART1_CONF0_REG,          0x60010020
+.equ UART1_CONF1_REG,          0x60010024
+.equ UART1_FLOW_CONF_REG,      0x60010034
+.equ UART1_SLEEP_CONF_REG,     0x60010038
+.equ UART1_SWFC_CONF0_REG,     0x6001003C
+.equ UART1_SWFC_CONF1_REG,     0x60010040
+.equ UART1_TXBRK_CONF_REG,     0x60010044
+.equ UART1_IDLE_CONF_REG,      0x60010048
+.equ UART1_RS485_CONF_REG,     0x6001004C
+.equ UART1_CLK_CONF_REG,       0x60010078
+# Status Register
+.equ UART1_STATUS_REG,         0x6001001C
+.equ UART1_MEM_TX_STATUS_REG,  0x60010064
+.equ UART1_MEM_RX_STATUS_REG,  0x60010068
+.equ UART1_FSM_STATUS_REG,     0x6001006C
+# Autobaud Register
+.equ UART1_LOWPULSE_REG,       0x60010028 
+.equ UART1_HIGHPULSE_REG,      0x6001002C
+.equ UART1_RXD_CNT_REG,        0x60010030
+.equ UART1_POSPULSE_REG,       0x60010070
+.equ UART1_NEGPULSE_REG,       0x60010074
+# AT Escape Sequence Selection Configuration
+.equ UART1_AT_CMD_PRECNT_REG,  0x60010050
+.equ UART1_AT_CMD_POSTCNT_REG, 0x60010054
+.equ UART1_AT_CMD_GAPTOUT_REG, 0x60010058
+.equ UART1_AT_CMD_CHAR_REG,    0x6001005C
+# Version Register
+.equ UART1_DATE_REG,           0x6001007C
+.equ UART1_ID_REG,             0x60010080
+######################################################
+
+######################################################
+# SPI Controller (SPI)
+# (TRM 382)
+# (note: inserted a 2 to the register names)
+######################################################
+.equ SPI0_BASE,               0x60003000 # not usable?
+.equ SPI1_BASE,               0x60002000 # not usable?
+.equ SPI2_BASE,               0x60024000
+# User-defined control registers
+.equ SPI2_CMD_REG,            0x60024000
+.equ SPI2_ADDR_REG,           0x60024004
+.equ SPI2_USER_REG,           0x60024010
+.equ SPI2_USER1_REG,          0x60024014
+.equ SPI2_USER2_REG,          0x60024018
+# Control and configuration registers
+.equ SPI2_CTRL_REG,           0x60024008
+.equ SPI2_MS_DLEN_REG,        0x6002401C
+.equ SPI2_MISC_REG,           0x60024020
+.equ SPI2_DMA_CONF_REG,       0x60024030
+.equ SPI2_SLAVE_REG,          0x600240E0
+.equ SPI2_SLAVE1_REG,         0x600240E4
+# Clock control registers
+.equ SPI2_CLOCK_REG,          0x6002400C
+.equ SPI2_CLK_GATE_REG,       0x600240E8
+# Timing registers
+#.equ SPI2_DIN_MODE_REG,       0x60024024
+#.equ SPI2_DIN_NUM_REG,        0x60024028
+#.equ SPI2_DOUT_MODE_REG,      0x6002402C
+# Interrupt registers
+.equ SPI2_DMA_INT_ENA_REG,    0x60024034
+.equ SPI2_DMA_INT_CLR_REG,    0x60024038
+.equ SPI2_DMA_INT_RAW_REG,    0x6002403C
+.equ SPI2_DMA_INT_ST_REG,     0x60024040
+.equ SPI2_DMA_INT_SET_REG,    0x60024044
+# CPU-controlled data buffer
+.equ SPI2_W0_REG,             0x60024098
+.equ SPI2_W1_REG,             0x6002409C
+.equ SPI2_W2_REG,             0x600240A0
+.equ SPI2_W3_REG,             0x600240A4
+.equ SPI2_W4_REG,             0x600240A8
+.equ SPI2_W5_REG,             0x600240AC
+.equ SPI2_W6_REG,             0x600240B0
+.equ SPI2_W7_REG,             0x600240B4
+.equ SPI2_W8_REG,             0x600240B8
+.equ SPI2_W9_REG,             0x600240BC
+.equ SPI2_W10_REG,            0x600240C0
+.equ SPI2_W11_REG,            0x600240C4
+.equ SPI2_W12_REG,            0x600240C8
+.equ SPI2_W13_REG,            0x600240CC
+.equ SPI2_W14_REG,            0x600240D0
+.equ SPI2_W15_REG,            0x600240D4
+# Version register
+.equ SPI2_DATE_REG,           0x600240F0
 ######################################################
 
 ######################################################
