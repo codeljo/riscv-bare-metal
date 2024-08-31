@@ -7,10 +7,11 @@
 [Build](#build-instructions)   
 
 # Supported Devices
+* ESP32-C2
 * ESP32-C3
 * ESP32-C6
 * ESP32-H2
-* Coming soon - Raspberry Pi Pico 2, ESP32-C2
+* Coming soon - Raspberry Pi Pico 2 (RP2350)
 
 <br>
 
@@ -137,7 +138,7 @@ make -C examples/blink help
 | ----------------------- | ----------------------- | ------------------------------------------------------- |
 | BMV_CC                  | riscv64-unknown-elf-gcc | riscv64-unknown-elf-gcc, riscv-none-elf-gcc, clang, ... |
 | BMV_ESPTOOL             | esptool                 | esptool, "python esptool.py"                            |
-| BMV_CHIP                | esp32c3                 | esp32c3, esp32c6                                        |
+| BMV_CHIP                | esp32c3                 | esp32c2, esp32c3, esp32c6, esp32h2                      |
 | BMV_PORT                | /dev/ttyACM0            | /dev/ttyUSB0, /dev/ttyACM0, ..., COM1, COM2, ...        |
 
 >Environment Override
