@@ -1,6 +1,7 @@
 #
 # ESP32-H2
 # RGB - WS2812
+# Requires 32 MHz CPU Clock
 #
 
 #include "../include/registers.inc"
@@ -21,14 +22,19 @@ ws2812_write:
 
     mv   t5, a1
     li   t6, 0x80000000
+    j    .LNextBit
 
+.LNextBitFrom1:
+    nop
+    nop
+    sw   t2, (t0)         # LOW
 .LNextBit:
     bge  t4, t3, .LRet
 
     addi t4, t4, 1
     and  a7, t6, t5
-    sw   t2, (t1)
     srli t6, t6, 1
+    sw   t2, (t1)         # HIGH
     bne  zero, a7, .L1
 
 .L0:
@@ -54,15 +60,16 @@ ws2812_write:
     nop
     nop
     nop
+    nop
     # low for 0.45 us
-    sw   t2, (t0)         # LOW
-    j .LNextBit
+    #sw   t2, (t0)         # LOW
+    j .LNextBitFrom1
 
 .LRet:
     sw   t2, (t0)
     ret
 
 # WS2812B - GRB, MSBit first, send 24 bits for each led in the chain
-# 0     (0.4 us high, then 0.85 us low) (1.25 us total period)
-# 1     (0.8 us high, then 0.45 us low) (1.25 us total period)
+# 0     (0.4 us high, then 0.85 us low) (1.25 us total period) (32% duty)
+# 1     (0.8 us high, then 0.45 us low) (1.25 us total period) (64% duty)
 # reset (>=50 us low)

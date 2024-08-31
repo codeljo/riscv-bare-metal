@@ -1,6 +1,7 @@
 #
 # ESP32-C3
 # RGB - WS2812
+# Requires 20 MHz CPU Clock
 #
 
 #include "../include/registers.inc"
@@ -25,8 +26,8 @@ ws2812_write:
 .LNextBit:
     bge  t4, t3, .LRet
 
-    sw   t2, (t1)         # HIGH
     addi t4, t4, 1
+    sw   t2, (t1)         # HIGH
     and  a7, t6, t5
     srli t6, t6, 1
     bne  zero, a7, .L1
@@ -60,8 +61,8 @@ ws2812_write:
     ret
 
 # WS2812B - GRB, MSBit first, send 24 bits for each led in the chain
-# 0     (0.4 us high, then 0.85 us low) (1.25 us total period)
-# 1     (0.8 us high, then 0.45 us low) (1.25 us total period)
+# 0     (0.4 us high, then 0.85 us low) (1.25 us total period) (32% duty)
+# 1     (0.8 us high, then 0.45 us low) (1.25 us total period) (64% duty)
 # reset (>=50 us low)
 #
 #  1000000 ÷ 1.25 = 800000 (800 kHz bit stream)

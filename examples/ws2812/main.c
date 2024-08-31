@@ -10,6 +10,9 @@ void setup() {
     gpio_output_func_select(RGB0, 0x80);
     gpio_output_enable(RGB0);
     gpio_write(RGB0, 0);
+    #ifdef ESP32C2
+    clock_set_cpu_freq(40);
+    #endif
 }
 
 int main() {
