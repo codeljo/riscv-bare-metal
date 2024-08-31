@@ -62,6 +62,51 @@
 ######################################################
 
 ######################################################
+# GDMA Controller (GDMA)
+# (TRM 57)
+######################################################
+.equ GDMA_BASE,                           0x6003F000
+# Interrupt Registers
+.equ GDMA_INT_RAW_CH0_REG,                0x6003F000
+.equ GDMA_INT_ST_CH0_REG,                 0x6003F004
+.equ GDMA_INT_ENA_CH0_REG,                0x6003F008
+.equ GDMA_INT_CLR_CH0_REG,                0x6003F00C
+# Configuration Registers
+.equ GDMA_MISC_CONF_REG,                  0x6003F044
+.equ GDMA_IN_CONF0_CH0_REG,               0x6003F070
+.equ GDMA_IN_CONF1_CH0_REG,               0x6003F074
+.equ GDMA_IN_POP_CH0_REG,                 0x6003F07C
+.equ GDMA_IN_LINK_CH0_REG,                0x6003F080
+.equ GDMA_OUT_CONF0_CH0_REG,              0x6003F0D0
+.equ GDMA_OUT_CONF1_CH0_REG,              0x6003F0D4
+.equ GDMA_OUT_PUSH_CH0_REG,               0x6003F0DC
+.equ GDMA_OUT_LINK_CH0_REG,               0x6003F0E0
+# Status Registers
+.equ GDMA_INFIFO_STATUS_CH0_REG,          0x6003F078
+.equ GDMA_IN_STATE_CH0_REG,               0x6003F084
+.equ GDMA_IN_SUC_EOF_DES_ADDR_CH0_REG,    0x6003F088
+.equ GDMA_IN_ERR_EOF_DES_ADDR_CH0_REG,    0x6003F08C
+.equ GDMA_IN_DSCR_CH0_REG,                0x6003F090
+.equ GDMA_IN_DSCR_BF0_CH0_REG,            0x6003F094
+.equ GDMA_IN_DSCR_BF1_CH0_REG,            0x6003F098
+.equ GDMA_OUTFIFO_STATUS_CH0_REG,         0x6003F0D8
+.equ GDMA_OUT_STATE_CH0_REG,              0x6003F0E4
+.equ GDMA_OUT_EOF_DES_ADDR_CH0_REG,       0x6003F0E8
+.equ GDMA_OUT_EOF_BFR_DES_ADDR_CH0_REG,   0x6003F0EC
+.equ GDMA_OUT_DSCR_CH0_REG,               0x6003F0F0
+.equ GDMA_OUT_DSCR_BF0_CH0_REG,           0x6003F0F4
+.equ GDMA_OUT_DSCR_BF1_CH0_REG,           0x6003F0F8
+# Priority Registers
+.equ GDMA_IN_PRI_CH0_REG,                 0x6003F09C
+.equ GDMA_OUT_PRI_CH0_REG,                0x6003F0FC
+# Peripheral Select Registers
+.equ GDMA_IN_PERI_SEL_CH0_REG,            0x6003F0A0
+.equ GDMA_OUT_PERI_SEL_CH0_REG,           0x6003F100
+# Version Register
+.equ GDMA_DATE_REG,                       0x6003F048
+######################################################
+
+######################################################
 # GPIO (GPIO)
 # (TRM 128)
 ######################################################
