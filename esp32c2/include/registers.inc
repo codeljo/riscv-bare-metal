@@ -842,6 +842,54 @@
 ######################################################
 
 ######################################################
+# I2C Controller (I2C)
+# (TRM 435)
+######################################################
+.equ I2C_BASE,                     0x60013000
+# Timing Registers
+.equ I2C_SCL_LOW_PERIOD_REG,       0x60013000
+.equ I2C_SDA_HOLD_REG,             0x60013030
+.equ I2C_SDA_SAMPLE_REG,           0x60013034
+.equ I2C_SCL_HIGH_PERIOD_REG,      0x60013038
+.equ I2C_SCL_START_HOLD_REG,       0x60013040
+.equ I2C_SCL_RSTART_SETUP_REG,     0x60013044
+.equ I2C_SCL_STOP_HOLD_REG,        0x60013048
+.equ I2C_SCL_STOP_SETUP_REG,       0x6001304C
+.equ I2C_SCL_ST_TIME_OUT_REG,      0x60013078
+.equ I2C_SCL_MAIN_ST_TIME_OUT_REG, 0x6001307C
+# Configuration Registers
+.equ I2C_CTR_REG,                  0x60013004
+.equ I2C_TO_REG,                   0x6001300C
+.equ I2C_FIFO_CONF_REG,            0x60013018
+.equ I2C_FILTER_CFG_REG,           0x60013050
+.equ I2C_CLK_CONF_REG,             0x60013054
+.equ I2C_SCL_SP_CONF_REG,          0x60013080
+# Status Registers
+.equ I2C_SR_REG,                   0x60013008
+.equ I2C_FIFO_ST_REG,              0x60013014
+.equ I2C_DATA_REG,                 0x6001301C
+# Interrupt Registers
+.equ I2C_INT_RAW_REG,              0x60013020
+.equ I2C_INT_CLR_REG,              0x60013024
+.equ I2C_INT_ENA_REG,              0x60013028
+.equ I2C_INT_STATUS_REG,           0x6001302C
+# Command Registers
+.equ I2C_COMD0_REG,                0x60013058
+.equ I2C_COMD1_REG,                0x6001305C
+.equ I2C_COMD2_REG,                0x60013060
+.equ I2C_COMD3_REG,                0x60013064
+.equ I2C_COMD4_REG,                0x60013068
+.equ I2C_COMD5_REG,                0x6001306C
+.equ I2C_COMD6_REG,                0x60013070
+.equ I2C_COMD7_REG,                0x60013074
+# Address Registers
+.equ I2C_TXFIFO_START_ADDR_REG,    0x60013100
+.equ I2C_RXFIFO_START_ADDR_REG,    0x60013180
+# Version Register
+.equ I2C_DATE_REG,                 0x600130F8
+######################################################
+
+######################################################
 # LED PWM Controller (LEDC)
 # (TRM 463)
 ######################################################
