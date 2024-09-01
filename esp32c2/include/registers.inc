@@ -571,7 +571,7 @@
 
 ######################################################
 # System Registers (SYSREG)
-# (TRM 254) (TODO: base address for 3 SYSCON registers)
+# (TRM 254)
 ######################################################
 .equ SYSTEM_BASE,                        0x600C0000
 # Peripheral Clock Control Registers
@@ -599,10 +599,10 @@
 .equ SYSTEM_DATE_REG,                    0x600C0FFc
 
 # The addresses below are relative to the base address of apb control
-# Is the base address SYSCON ?: 0x60026000
-#.equ SYSCON_CLKGATE_FORCE_ON_REG,      0x00A4
-#.equ SYSCON_MEM_POWER_DOWN_REG,        0x00A8
-#.equ SYSCON_MEM_POWER_UP_REG,          0x00AC
+# base address is SYSCON (0x60026000)
+.equ SYSCON_CLKGATE_FORCE_ON_REG,        0x600260A4
+.equ SYSCON_MEM_POWER_DOWN_REG,          0x600260A8
+.equ SYSCON_MEM_POWER_UP_REG,            0x600260AC
 ######################################################
 
 ######################################################
