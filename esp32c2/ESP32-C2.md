@@ -48,9 +48,8 @@ Clock frequency of up to 120 MHz
 | SPI1                           | 0x6000_2000 |
 | SPI0                           | 0x6000_3000 |
 | GPI0                           | 0x6000_4000 |
-| Low Power Managment            | 0x6000_8000 |
+| RTCCNTL                        | 0x6000_8000 |
 | IO_MUX                         | 0x6009_0000 |
-| MISC                           | 0x6009_D000 |
 | UART1                          | 0x6001_0000 |
 | I2C                            | 0x6001_3000 |
 | LEDC                           | 0x6001_9000 |
@@ -63,9 +62,9 @@ Clock frequency of up to 120 MHz
 | GDMA                           | 0x6003_F000 |
 | ADC                            | 0x6004_0000 |
 | SYSTEM                         | 0x600C_0000 |
-| Sensitive Registers            | 0x600C_1000 |
+| SENSITIVE                      | 0x600C_1000 |
 | INTERRUPT_MATRIX               | 0x600C_2000 |
-| Configure Cache                | 0x600C_4000 |
+| EXTMEM                         | 0x600C_4000 |
 | ASSIST_DEBUG                   | 0x600C_E000 |
 
 <br>
