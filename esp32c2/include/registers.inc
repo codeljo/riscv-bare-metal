@@ -107,6 +107,13 @@
 ######################################################
 
 ######################################################
+# eFuse Controller (EFUSE)
+# (TRM 93)
+######################################################
+.equ EFUSE_BASE,            0x60008800
+######################################################
+
+######################################################
 # GPIO (GPIO)
 # (TRM 128)
 ######################################################
@@ -685,6 +692,33 @@
 .equ SHA_M_13_REG,             0x6003B0B4
 .equ SHA_M_14_REG,             0x6003B0B8
 .equ SHA_M_15_REG,             0x6003B0BC
+######################################################
+
+######################################################
+# External Memory Encryption and Decryption (XTS_AES)
+# (TRM 297)
+######################################################
+.equ XTS_AES_BASE,            0x600CC000
+# Plaintext Register Heap
+.equ XTS_AES_PLAIN_0_REG,     0x600CC000
+.equ XTS_AES_PLAIN_0_REG,     0x600CC004
+.equ XTS_AES_PLAIN_0_REG,     0x600CC008
+.equ XTS_AES_PLAIN_0_REG,     0x600CC00C
+.equ XTS_AES_PLAIN_0_REG,     0x600CC010
+.equ XTS_AES_PLAIN_0_REG,     0x600CC014
+.equ XTS_AES_PLAIN_0_REG,     0x600CC018
+.equ XTS_AES_PLAIN_0_REG,     0x600CC01C
+# Configuration Registers
+.equ XTS_AES_LINESIZE_REG,    0x600CC040
+.equ XTS_AES_DESTINATION_REG, 0x600CC044
+.equ XTS_AES_PHYSICAL_ADDRESS_REG, 0x600CC048
+# Control/Status Registers
+.equ XTS_AES_TRIGGER_REG,     0x600CC04C
+.equ XTS_AES_RELEASE_REG,     0x600CC050
+.equ XTS_AES_DESTROY_REG,     0x600CC054
+.equ XTS_AES_STATE_REG,       0x600CC058
+# Version Register
+.equ XTS_AES_DATE_REG,        0x600CC05C
 ######################################################
 
 ######################################################
