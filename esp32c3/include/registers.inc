@@ -1151,13 +1151,13 @@
 .equ XTS_AES_BASE,            0x600CC000
 # Plaintext Register Heap
 .equ XTS_AES_PLAIN_0_REG,     0x600CC000
-.equ XTS_AES_PLAIN_0_REG,     0x600CC004
-.equ XTS_AES_PLAIN_0_REG,     0x600CC008
-.equ XTS_AES_PLAIN_0_REG,     0x600CC00C
-.equ XTS_AES_PLAIN_0_REG,     0x600CC010
-.equ XTS_AES_PLAIN_0_REG,     0x600CC014
-.equ XTS_AES_PLAIN_0_REG,     0x600CC018
-.equ XTS_AES_PLAIN_0_REG,     0x600CC01C
+.equ XTS_AES_PLAIN_1_REG,     0x600CC004
+.equ XTS_AES_PLAIN_2_REG,     0x600CC008
+.equ XTS_AES_PLAIN_3_REG,     0x600CC00C
+.equ XTS_AES_PLAIN_4_REG,     0x600CC010
+.equ XTS_AES_PLAIN_5_REG,     0x600CC014
+.equ XTS_AES_PLAIN_6_REG,     0x600CC018
+.equ XTS_AES_PLAIN_7_REG,     0x600CC01C
 # Configuration Registers
 .equ XTS_AES_LINESIZE_REG,    0x600CC040
 .equ XTS_AES_DESTINATION_REG, 0x600CC044
@@ -1416,36 +1416,36 @@
 ######################################################
 .equ I2S_BASE,                     0x6002D000
 # Interrupt registers
-.equ I2S_INT_RAW_REG,              0x6002D000
-.equ I2S_INT_ST_REG,               0x6002D000
-.equ I2S_INT_ENA_REG,              0x6002D000
-.equ I2S_INT_CLR_REG,              0x6002D000
+.equ I2S_INT_RAW_REG,              0x6002D00C
+.equ I2S_INT_ST_REG,               0x6002D010
+.equ I2S_INT_ENA_REG,              0x6002D014
+.equ I2S_INT_CLR_REG,              0x6002D018
 # RX control and configuration registers
-.equ I2S_RX_CONF_REG,              0x6002D000
-.equ I2S_RX_CONF1_REG,             0x6002D000
-.equ I2S_RX_CLKM_CONF_REG,         0x6002D000
-.equ I2S_TX_PCM2PDM_CONF_REG,      0x6002D000
-.equ I2S_TX_PCM2PDM_CONF1_REG,     0x6002D000
-.equ I2S_RX_TDM_CTRL_REG,          0x6002D000
-.equ I2S_RXEOF_NUM_REG,            0x6002D000
+.equ I2S_RX_CONF_REG,              0x6002D020
+.equ I2S_RX_CONF1_REG,             0x6002D028
+.equ I2S_RX_CLKM_CONF_REG,         0x6002D030
+.equ I2S_TX_PCM2PDM_CONF_REG,      0x6002D040
+.equ I2S_TX_PCM2PDM_CONF1_REG,     0x6002D044
+.equ I2S_RX_TDM_CTRL_REG,          0x6002D050
+.equ I2S_RXEOF_NUM_REG,            0x6002D064
 # TX control and configuration registers
-.equ I2S_TX_CONF_REG,              0x6002D000
-.equ I2S_TX_CONF1_REG,             0x6002D000
-.equ I2S_TX_CLKM_CONF_REG,         0x6002D000
-.equ I2S_TX_TDM_CTRL_REG,          0x6002D000
+.equ I2S_TX_CONF_REG,              0x6002D024
+.equ I2S_TX_CONF1_REG,             0x6002D02C
+.equ I2S_TX_CLKM_CONF_REG,         0x6002D034
+.equ I2S_TX_TDM_CTRL_REG,          0x6002D054
 # RX clock and timing registers
-.equ I2S_RX_CLKM_DIV_CONF_REG,     0x6002D000
-.equ I2S_RX_TIMING_REG,            0x6002D000
+.equ I2S_RX_CLKM_DIV_CONF_REG,     0x6002D038
+.equ I2S_RX_TIMING_REG,            0x6002D058
 # TX clock and timing registers
-.equ I2S_TX_CLKM_DIV_CONF_REG,     0x6002D000
-.equ I2S_TX_TIMING_REG,            0x6002D000
+.equ I2S_TX_CLKM_DIV_CONF_REG,     0x6002D03C
+.equ I2S_TX_TIMING_REG,            0x6002D05C
 # Control and configuration registers
-.equ I2S_LC_HUNG_CONF_REG,         0x6002D000
-.equ I2S_CONF_SIGLE_DATA_REG,      0x6002D000
+.equ I2S_LC_HUNG_CONF_REG,         0x6002D060
+.equ I2S_CONF_SIGLE_DATA_REG,      0x6002D068
 # TX Status Register
-.equ I2S_STATE_REG,                0x6002D000
+.equ I2S_STATE_REG,                0x6002D06C
 # Version Register
-.equ I2S_DATE_REG,                 0x6002D000
+.equ I2S_DATE_REG,                 0x6002D080
 ######################################################
 
 ######################################################
