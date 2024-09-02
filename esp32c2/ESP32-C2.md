@@ -48,12 +48,12 @@ Clock frequency of up to 120 MHz
 | SPI1                           | 0x6000_2000 |
 | SPI0                           | 0x6000_3000 |
 | GPI0                           | 0x6000_4000 |
-| RTCCNTL                        | 0x6000_8000 |
+| RTC_CNTL                       | 0x6000_8000 |
 | IO_MUX                         | 0x6009_0000 |
 | UART1                          | 0x6001_0000 |
 | I2C                            | 0x6001_3000 |
 | LEDC                           | 0x6001_9000 |
-| TIMERGROUP0                    | 0x6001_F000 |
+| TIMG0                          | 0x6001_F000 |
 | SYSTIMER                       | 0x6002_3000 |
 | SPI2                           | 0x6002_4000 |
 | SYSCON                         | 0x6002_6000 |
@@ -63,8 +63,8 @@ Clock frequency of up to 120 MHz
 | ADC                            | 0x6004_0000 |
 | SYSTEM                         | 0x600C_0000 |
 | SENSITIVE                      | 0x600C_1000 |
-| INTERRUPT_MATRIX               | 0x600C_2000 |
-| EXTMEM                         | 0x600C_4000 |
+| INTMTRX                        | 0x600C_2000 |
+| Configure Cache                | 0x600C_4000 |
 | ASSIST_DEBUG                   | 0x600C_E000 |
 
 <br>

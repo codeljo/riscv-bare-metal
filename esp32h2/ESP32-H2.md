@@ -43,33 +43,33 @@ Clock frequency of up to 96 MHz
 | UHCI                           | 0x6000_6000 |
 | RMT                            | 0x6000_7000 |
 | LEDC                           | 0x6000_8000 |
-| TIMERGROUP0                    | 0x6000_9000 |
-| TIMERGROUP1                    | 0x6000_A000 |
+| TIMG0                          | 0x6000_9000 |
+| TIMG1                          | 0x6000_A000 |
 | SYSTIMER                       | 0x6000_B000 |
 | TWAI                           | 0x6000_C000 |
 | I2S                            | 0x6000_D000 |
 | SAR_ADC                        | 0x6000_E000 |
 | USB_SERIAL_JTAG                | 0x6000_F000 |
-| INTERRUPT_MATRIX               | 0x6001_0000 |
+| INTMTX                         | 0x6001_0000 |
 | PCNT                           | 0x6001_2000 |
 | SOC_ETM                        | 0x6001_3000 |
 | MCPWM                          | 0x6001_4000 |
 | PARL_IO                        | 0x6001_5000 |
 | GDMA                           | 0x6008_0000 |
-| GP-SPI2                        | 0x6008_1000 |
+| SPI2                           | 0x6008_1000 |
 | AES                            | 0x6008_8000 |
 | SHA                            | 0x6008_9000 |
 | RSA                            | 0x6008_A000 |
 | ECC                            | 0x6008_B000 |
-| DIGITAL_SIGNATURE              | 0x6008_C000 |
+| DS                             | 0x6008_C000 |
 | HMAC                           | 0x6008_D000 |
 | ECDSA                          | 0x6008_E000 |
 | IO_MUX                         | 0x6009_0000 |
-| GPIO (matrix)                  | 0x6009_1000 |
+| GPIO                           | 0x6009_1000 |
 | MEM_MONITOR                    | 0x6009_2000 |
-| HP_SYSTEM                      | 0x6009_5000 |
-| PCR (power clock reset)        | 0x6009_6000 |
-| TEE (trusted execution)        | 0x6009_8000 |
+| HP_SYSREG                      | 0x6009_5000 |
+| PCR                            | 0x6009_6000 |
+| TEE                            | 0x6009_8000 |
 | HP_APM                         | 0x6009_9000 |
 | PMU                            | 0x600B_0000 |
 | LP_CLKRST                      | 0x600B_0400 |
@@ -78,12 +78,12 @@ Clock frequency of up to 96 MHz
 | LP_AON                         | 0x600B_1000 |
 | LP_WDT                         | 0x600B_1C00 |
 | LP_IO_MUX                      | 0x600B_2000 |
-| LP_PERI                        | 0x600B_2800 |
+| LPPERI                         | 0x600B_2800 |
 | LP_ANA_PERI                    | 0x600B_2C00 |
 | LP_APM                         | 0x600B_3800 |
-| TRACE (RISC-V trace encoder)   | 0x600C_0000 |
-| ASSIST_DEBUG (CPU_BUS_MONITOR) | 0x600C_2000 |
-| INTPRI (interrupt priority)    | 0x600C_5000 |
+| TRACE                          | 0x600C_0000 |
+| ASSIST_DEBUG                   | 0x600C_2000 |
+| INTPRI                         | 0x600C_5000 |
 
 <br>
 
