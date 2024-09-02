@@ -74,6 +74,132 @@
 ######################################################
 
 ######################################################
+# GDMA Controller (GDMA)
+# (TRM 134)
+######################################################
+.equ GDMA_BASE,                           0x60080000
+# Interrupt Registers
+.equ GDMA_IN_INT_RAW_CH0_REG,             0x60080000
+.equ GDMA_IN_INT_ST_CH0_REG,              0x60080004
+.equ GDMA_IN_INT_ENA_CH0_REG,             0x60080008
+.equ GDMA_IN_INT_CLR_CH0_REG,             0x6008000C
+.equ GDMA_IN_INT_RAW_CH1_REG,             0x60080010
+.equ GDMA_IN_INT_ST_CH1_REG,              0x60080014
+.equ GDMA_IN_INT_ENA_CH1_REG,             0x60080018
+.equ GDMA_IN_INT_CLR_CH1_REG,             0x6008001C
+.equ GDMA_IN_INT_RAW_CH2_REG,             0x60080020
+.equ GDMA_IN_INT_ST_CH2_REG,              0x60080024
+.equ GDMA_IN_INT_ENA_CH2_REG,             0x60080028
+.equ GDMA_IN_INT_CLR_CH2_REG,             0x6008002C
+.equ GDMA_OUT_INT_RAW_CH0_REG,            0x60080030
+.equ GDMA_OUT_INT_ST_CH0_REG,             0x60080034
+.equ GDMA_OUT_INT_ENA_CH0_REG,            0x60080038
+.equ GDMA_OUT_INT_CLR_CH0_REG,            0x6008003C
+.equ GDMA_OUT_INT_RAW_CH1_REG,            0x60080040
+.equ GDMA_OUT_INT_ST_CH1_REG,             0x60080044
+.equ GDMA_OUT_INT_ENA_CH1_REG,            0x60080048
+.equ GDMA_OUT_INT_CLR_CH1_REG,            0x6008004C
+.equ GDMA_OUT_INT_RAW_CH2_REG,            0x60080050
+.equ GDMA_OUT_INT_ST_CH2_REG,             0x60080054
+.equ GDMA_OUT_INT_ENA_CH2_REG,            0x60080058
+.equ GDMA_OUT_INT_CLR_CH2_REG,            0x6008005C
+# Debug Registers
+.equ GDMA_AHB_TEST_REG,                   0x60080060
+# Configuration Register
+.equ GDMA_MISC_CONF_REG,                  0x60080064
+.equ GDMA_IN_CONF0_CH0_REG,               0x60080070
+.equ GDMA_IN_CONF1_CH0_REG,               0x60080074
+.equ GDMA_IN_POP_CH0_REG,                 0x6008007C
+.equ GDMA_IN_LINK_CH0_REG,                0x60080080
+.equ GDMA_OUT_CONF0_CH0_REG,              0x600800D0
+.equ GDMA_OUT_CONF1_CH0_REG,              0x600800D4
+.equ GDMA_OUT_PUSH_CH0_REG,               0x600800DC
+.equ GDMA_OUT_LINK_CH0_REG,               0x600800E0     
+.equ GDMA_IN_CONF0_CH1_REG,               0x60080130
+.equ GDMA_IN_CONF1_CH1_REG,               0x60080134
+.equ GDMA_IN_POP_CH1_REG,                 0x6008013C
+.equ GDMA_IN_LINK_CH1_REG,                0x60080140
+.equ GDMA_OUT_CONF0_CH1_REG,              0x60080190
+.equ GDMA_OUT_CONF1_CH1_REG,              0x60080194
+.equ GDMA_OUT_PUSH_CH1_REG,               0x6008019C
+.equ GDMA_OUT_LINK_CH1_REG,               0x600801A0
+.equ GDMA_IN_CONF0_CH2_REG,               0x600801F0
+.equ GDMA_IN_CONF1_CH2_REG,               0x600801F4
+.equ GDMA_IN_POP_CH2_REG,                 0x600801FC
+.equ GDMA_IN_LINK_CH2_REG,                0x60080200
+.equ GDMA_OUT_CONF0_CH2_REG,              0x60080250
+.equ GDMA_OUT_CONF1_CH2_REG,              0x60080254
+.equ GDMA_OUT_PUSH_CH2_REG,               0x6008025C
+.equ GDMA_OUT_LINK_CH2_REG,               0x60080260
+# Version Register
+.equ GDMA_DATE_REG,                       0x60080068
+# Status Registers
+.equ GDMA_INFIFO_STATUS_CH0_REG,          0x60080078
+.equ GDMA_IN_STATE_CH0_REG,               0x60080084
+.equ GDMA_IN_SUC_EOF_DES_ADDR_CH0_REG,    0x60080088
+.equ GDMA_IN_ERR_EOF_DES_ADDR_CH0_REG,    0x6008008C
+.equ GDMA_IN_DSCR_CH0_REG,                0x60080090
+.equ GDMA_IN_DSCR_BF0_CH0_REG,            0x60080094
+.equ GDMA_IN_DSCR_BF1_CH0_REG,            0x60080098
+.equ GDMA_OUTFIFO_STATUS_CH0_REG,         0x600800D8
+.equ GDMA_OUT_STATE_CH0_REG,              0x600800E4
+.equ GDMA_OUT_EOF_DES_ADDR_CH0_REG,       0x600800E8
+.equ GDMA_OUT_EOF_BFR_DES_ADDR_CH0_REG,   0x600800EC
+.equ GDMA_OUT_DSCR_CH0_REG,               0x600800F0
+.equ GDMA_OUT_DSCR_BF0_CH0_REG,           0x600800F4
+.equ GDMA_OUT_DSCR_BF1_CH0_REG,           0x600800F8
+.equ GDMA_INFIFO_STATUS_CH1_REG,          0x60080138
+.equ GDMA_IN_STATE_CH1_REG,               0x60080144
+.equ GDMA_IN_SUC_EOF_DES_ADDR_CH1_REG,    0x60080148
+.equ GDMA_IN_ERR_EOF_DES_ADDR_CH1_REG,    0x6008014C
+.equ GDMA_IN_DSCR_CH1_REG,                0x60080150
+.equ GDMA_IN_DSCR_BF0_CH1_REG,            0x60080154
+.equ GDMA_IN_DSCR_BF1_CH1_REG,            0x60080158
+.equ GDMA_OUTFIFO_STATUS_CH1_REG,         0x60080198
+.equ GDMA_OUT_STATE_CH1_REG,              0x600801A4
+.equ GDMA_OUT_EOF_DES_ADDR_CH1_REG,       0x600801A8
+.equ GDMA_OUT_EOF_BFR_DES_ADDR_CH1_REG,   0x600801AC
+.equ GDMA_OUT_DSCR_CH1_REG,               0x600801B0
+.equ GDMA_OUT_DSCR_BF0_CH1_REG,           0x600801B4
+.equ GDMA_OUT_DSCR_BF1_CH1_REG,           0x600801B8
+.equ GDMA_INFIFO_STATUS_CH2_REG,          0x600801F8
+.equ GDMA_IN_STATE_CH2_REG,               0x60080204
+.equ GDMA_IN_SUC_EOF_DES_ADDR_CH2_REG,    0x60080208
+.equ GDMA_IN_ERR_EOF_DES_ADDR_CH2_REG,    0x6008020C
+.equ GDMA_IN_DSCR_CH2_REG,                0x60080210
+.equ GDMA_IN_DSCR_BF0_CH2_REG,            0x60080214
+.equ GDMA_IN_DSCR_BF1_CH2_REG,            0x60080218
+.equ GDMA_OUTFIFO_STATUS_CH2_REG,         0x60080258
+.equ GDMA_OUT_STATE_CH2_REG,              0x60080264
+.equ GDMA_OUT_EOF_DES_ADDR_CH2_REG,       0x60080268
+.equ GDMA_OUT_EOF_BFR_DES_ADDR_CH2_REG,   0x6008026C
+.equ GDMA_OUT_DSCR_CH2_REG,               0x60080270
+.equ GDMA_OUT_DSCR_BF0_CH2_REG,           0x60080274
+.equ GDMA_OUT_DSCR_BF1_CH2_REG,           0x60080278
+# Priority Registers
+.equ GDMA_IN_PRI_CH0_REG,                 0x6008009C
+.equ GDMA_OUT_PRI_CH0_REG,                0x600800FC
+.equ GDMA_IN_PRI_CH1_REG,                 0x6008015C
+.equ GDMA_OUT_PRI_CH1_REG,                0x600801BC
+.equ GDMA_IN_PRI_CH2_REG,                 0x6008021C
+.equ GDMA_OUT_PRI_CH2_REG,                0x6008027C
+# Peripheral Select Registers
+.equ GDMA_IN_PERI_SEL_CH0_REG,            0x600800A0
+.equ GDMA_OUT_PERI_SEL_CH0_REG,           0x60080100
+.equ GDMA_IN_PERI_SEL_CH1_REG,            0x60080160
+.equ GDMA_OUT_PERI_SEL_CH1_REG,           0x600801C0
+.equ GDMA_IN_PERI_SEL_CH2_REG,            0x60080220
+.equ GDMA_OUT_PERI_SEL_CH2_REG,           0x60080280
+######################################################
+
+######################################################
+# eFuse Controller (EFUSE)
+# (TRM 184)
+######################################################
+.equ EFUSE_BASE,            0x600B0800
+######################################################
+
+######################################################
 # GPIO (GPIO)
 # (TRM 255)
 ######################################################
@@ -335,6 +461,551 @@
 ######################################################
 
 ######################################################
+# GPIO_EXT Registers
+# (TRM 258)
+######################################################
+.equ GPIO_EXT_BASE,                  0x60091F00
+# SDM Configure Registers
+.equ GPIO_EXT_SIGMADELTA0_REG,       0x60091F00
+.equ GPIO_EXT_SIGMADELTA0_REG,       0x60091F04
+.equ GPIO_EXT_SIGMADELTA0_REG,       0x60091F08
+.equ GPIO_EXT_SIGMADELTA0_REG,       0x60091F0C
+.equ GPIO_EXT_SIGMADELTA_MISC_REG,   0x60091F24
+# Glitch Filter Configuration Registers
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F30
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F34
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F38
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F3C
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F40
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F44
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F48
+.equ GPIO_EXT_GLITCH_FILTER_CH0_REG, 0x60091F4C
+# ETM Configuration Registers
+.equ GPIO_EXT_ETM_EVENT_CH0_CFG_REG, 0x60091F60
+.equ GPIO_EXT_ETM_EVENT_CH1_CFG_REG, 0x60091F64
+.equ GPIO_EXT_ETM_EVENT_CH2_CFG_REG, 0x60091F68
+.equ GPIO_EXT_ETM_EVENT_CH3_CFG_REG, 0x60091F6C
+.equ GPIO_EXT_ETM_EVENT_CH4_CFG_REG, 0x60091F70
+.equ GPIO_EXT_ETM_EVENT_CH5_CFG_REG, 0x60091F74
+.equ GPIO_EXT_ETM_EVENT_CH6_CFG_REG, 0x60091F78
+.equ GPIO_EXT_ETM_EVENT_CH7_CFG_REG, 0x60091F7C
+.equ GPIO_EXT_ETM_TASK_P0_CFG_REG,   0x60091FA0
+.equ GPIO_EXT_ETM_TASK_P1_CFG_REG,   0x60091FA4
+.equ GPIO_EXT_ETM_TASK_P2_CFG_REG,   0x60091FA8
+.equ GPIO_EXT_ETM_TASK_P3_CFG_REG,   0x60091FAC
+.equ GPIO_EXT_ETM_TASK_P4_CFG_REG,   0x60091FB0
+.equ GPIO_EXT_ETM_TASK_P5_CFG_REG,   0x60091FB4
+.equ GPIO_EXT_ETM_TASK_P6_CFG_REG,   0x60091FB8
+.equ GPIO_EXT_ETM_TASK_P7_CFG_REG,   0x60091FBC
+# Version Register
+.equ GPIO_EXT_VERSION_REG,           0x60091FFC
+######################################################
+
+######################################################
+# LP IO MUX Registers
+# (TRM 259)
+######################################################
+.equ LP_IO_BASE,                   0x600B2000
+# GPIO Configuration/Data Registers
+.equ LP_IO_OUT_REG,                0x600B2000
+.equ LP_IO_OUT_W1TS_REG,           0x600B2004
+.equ LP_IO_OUT_W1TC_REG,           0x600B2008
+.equ LP_IO_ENABLE_REG,             0x600B200C
+.equ LP_IO_ENABLE_W1TS_REG,        0x600B2010
+.equ LP_IO_ENABLE_W1TC_REG,        0x600B2014
+.equ LP_IO_STATUS_REG,             0x600B2018
+.equ LP_IO_STATUS_W1TS_REG,        0x600B201C
+.equ LP_IO_STATUS_W1TC_REG,        0x600B2020
+.equ LP_IO_IN_REG,                 0x600B2024
+.equ LP_IO_PIN0_REG,               0x600B2028
+.equ LP_IO_PIN1_REG,               0x600B202C
+.equ LP_IO_PIN2_REG,               0x600B2030
+.equ LP_IO_PIN3_REG,               0x600B2034
+.equ LP_IO_PIN4_REG,               0x600B2038
+.equ LP_IO_PIN5_REG,               0x600B203C
+.equ LP_IO_PIN6_REG,               0x600B2040
+.equ LP_IO_PIN7_REG,               0x600B2044
+# GPIO LP Function Configuration Registers
+.equ LP_IO_GPIO0_REG,              0x600B2048
+.equ LP_IO_GPIO1_REG,              0x600B204C
+.equ LP_IO_GPIO2_REG,              0x600B2050
+.equ LP_IO_GPIO3_REG,              0x600B2054
+.equ LP_IO_GPIO4_REG,              0x600B2058
+.equ LP_IO_GPIO5_REG,              0x600B205C
+.equ LP_IO_GPIO6_REG,              0x600B2060
+.equ LP_IO_GPIO7_REG,              0x600B2064
+.equ LP_IO_STATUS_INT_REG,         0x600B2068
+# Version Register
+.equ LP_IO_DATE_REG,               0x600B23FC
+######################################################
+
+######################################################
+# PCR Registers (PCR) (Power Clock Reset)
+# (TRM 305)
+######################################################
+.equ PCR_BASE,                              0x60096000
+# Configuration Registers
+.equ PCR_UART0_CONF_REG,                    0x60096000
+.equ PCR_UART0_SCLK_CONF_REG,               0x60096004
+.equ PCR_UART0_PD_CTRL_REG,                 0x60096008
+.equ PCR_UART1_CONF_REG,                    0x6009600C
+.equ PCR_UART1_SCLK_CONF_REG,               0x60096010
+.equ PCR_UART1_PD_CTRL_REG,                 0x60096014
+.equ PCR_I2C_CONF_REG,                      0x60096020
+.equ PCR_I2C_SCLK_CONF_REG,                 0x60096024
+.equ PCR_UHCI_CONF_REG,                     0x60096028
+.equ PCR_RMT_CONF_REG,                      0x6009602C
+.equ PCR_RMT_SCLK_CONF_REG,                 0x60096030
+.equ PCR_LEDC_CONF_REG,                     0x60096034
+.equ PCR_LEDC_SCLK_CONF_REG,                0x60096038
+.equ PCR_TIMERGROUP0_CONF_REG,              0x6009603C
+.equ PCR_TIMERGROUP0_TIMER_CLK_CONF_REG,    0x60096040
+.equ PCR_TIMERGROUP0_WDT_CLK_CONF_REG,      0x60096044
+.equ PCR_TIMERGROUP1_CONF_REG,              0x60096048
+.equ PCR_TIMERGROUP1_TIMER_CLK_CONF_REG,    0x6009604C
+.equ PCR_TIMERGROUP1_WDT_CLK_CONF_REG,      0x60096050
+.equ PCR_SYSTIMER_CONF_REG,                 0x60096054
+.equ PCR_SYSTIMER_FUNC_CLK_CONF_REG,        0x60096058
+.equ PCR_TWAI0_CONF_REG,                    0x6009605C
+.equ PCR_TWAI0_FUNC_CLK_CONF_REG,           0x60096060
+.equ PCR_TWAI1_CONF_REG,                    0x60096064
+.equ PCR_TWAI1_FUNC_CLK_CONF_REG,           0x60096068
+.equ PCR_I2S_CONF_REG,                      0x6009606C
+.equ PCR_I2S_TX_CLKM_CONF_REG,              0x60096070
+.equ PCR_I2S_TX_CLKM_DIV_CONF_REG,          0x60096074
+.equ PCR_I2S_RX_CLKM_CONF_REG,              0x60096078
+.equ PCR_I2S_RX_CLKM_DIV_CONF_REG,          0x6009607C
+.equ PCR_SARADC_CONF_REG,                   0x60096080
+.equ PCR_SARADC_CLKM_CONF_REG,              0x60096084
+.equ PCR_TSENS_CLK_CONF_REG,                0x60096088
+.equ PCR_USB_SERIAL_JTAG_CONF_REG,          0x6009608C
+.equ PCR_INTMTX_CONF_REG,                   0x60096090
+.equ PCR_PCNT_CONF_REG,                     0x60096094
+.equ PCR_ETM_CONF_REG,                      0x60096098
+.equ PCR_PWM_CONF_REG,                      0x6009609C
+.equ PCR_PWM_CLK_CONF_REG,                  0x600960A0
+.equ PCR_PARL_IO_CONF_REG,                  0x600960A4
+.equ PCR_PARL_CLK_RX_CONF_REG,              0x600960A8
+.equ PCR_PARL_CLK_TX_CONF_REG,              0x600960AC
+.equ PCR_SDIO_SLAVE_CONF_REG,               0x600960B0
+.equ PCR_GDMA_CONF_REG,                     0x600960BC
+.equ PCR_SPI2_CONF_REG,                     0x600960C0
+.equ PCR_SPI2_CLKM_CONF_REG,                0x600960C4
+.equ PCR_AES_CONF_REG,                      0x600960C8
+.equ PCR_SHA_CONF_REG,                      0x600960CC
+.equ PCR_RSA_CONF_REG,                      0x600960D0
+.equ PCR_RSA_PD_CTRL_REG,                   0x600960D4
+.equ PCR_ECC_CONF_REG,                      0x600960D8
+.equ PCR_ECC_PD_CTRL_REG,                   0x600960DC
+.equ PCR_DS_CONF_REG,                       0x600960E0
+.equ PCR_HMAC_CONF_REG,                     0x600960E4
+.equ PCR_IOMUX_CONF_REG,                    0x600960E8
+.equ PCR_IOMUX_CLK_CONF_REG,                0x600960EC
+.equ PCR_MEM_MONITOR_CONF_REG,              0x600960F0
+.equ PCR_TRACE_CONF_REG,                    0x600960FC
+.equ PCR_ASSIST_CONF_REG,                   0x60096100
+.equ PCR_CACHE_CONF_REG,                    0x60096104
+.equ PCR_MODEM_APB_CONF_REG,                0x60096108
+.equ PCR_TIMEOUT_CONF_REG,                  0x6009610C
+.equ PCR_SYSCLK_CONF_REG,                   0x60096110
+.equ PCR_CPU_WAITI_CONF_REG,                0x60096114
+.equ PCR_CPU_FREQ_CONF_REG,                 0x60096118
+.equ PCR_AHB_FREQ_CONF_REG,                 0x6009611C
+.equ PCR_APB_FREQ_CONF_REG,                 0x60096120
+.equ PCR_PLL_DIV_CLK_EN_REG,                0x60096128
+.equ PCR_CTRL_32K_CONF_REG,                 0x60096134
+.equ PCR_SRAM_POWER_CONF_REG,               0x60096138
+.equ PCR_RESET_EVENT_BYPASS_REG,            0x60096FF0
+# Frequency Statistics Register
+.equ PCR_SYSCLK_FREQ_QUERY_0_REG,           0x60096124
+# Version Register
+.equ PCR_DATE_REG,                          0x60096FFC
+######################################################
+
+######################################################
+# Low-power Clock/Reset (LP_CLKRST)
+# (TRM 307)
+######################################################
+.equ LP_CLKRST_BASE,                        0x600B0400
+# Configuration Registers
+.equ LP_CLKRST_LP_CLK_CONF_REG,             0x600B0400
+.equ LP_CLKRST_LP_CLK_PO_EN_REG,            0x600B0404
+.equ LP_CLKRST_LP_CLK_EN_REG,               0x600B0408
+.equ LP_CLKRST_LP_RST_EN_REG,               0x600B040C
+.equ LP_CLKRST_RESET_CAUSE_REG,             0x600B0410
+.equ LP_CLKRST_CPU_RESET_REG,               0x600B0414
+.equ LP_CLKRST_FOSC_CNTL_REG,               0x600B0418
+.equ LP_CLKRST_RC32K_CNTL_REG,              0x600B041C
+.equ LP_CLKRST_CLK_TO_HP_REG,               0x600B0420
+.equ LP_CLKRST_LPMEM_FORCE_REG,             0x600B0424
+.equ LP_CLKRST_LPPERI_REG,                  0x600B0428
+.equ LP_CLKRST_XTAL32K_REG,                 0x600B042C
+.equ LP_CLKRST_DATE_REG,                    0x600B07FC
+######################################################
+
+######################################################
+# Interrupt Matrix (INTMTX)
+# (TRM 374)
+######################################################
+.equ INTMTX_BASE,                                  0x60010000
+# Interrupt Source Mapping Register
+.equ INTMTX_CORE0_PMU_INTR_MAP_REG,                0x60010034
+.equ INTMTX_CORE0_EFUSE_INTR_MAP_REG,              0x60010038
+.equ INTMTX_CORE0_LP_RTC_TIMER_INTR_MAP_REG,       0x6001003C
+.equ INTMTX_CORE0_LP_UART_INTR_MAP_REG,            0x60010040
+.equ INTMTX_CORE0_LP_I2C_INTR_MAP_REG,             0x60010044
+.equ INTMTX_CORE0_LP_WDT_INTR_MAP_REG,             0x60010048
+.equ INTMTX_CORE0_LP_PERI_TIMEOUT_INTR_MAP_REG,    0x6001004C
+.equ INTMTX_CORE0_LP_APM_M0_INTR_MAP_REG,          0x60010050
+.equ INTMTX_CORE0_LP_APM_M1_INTR_MAP_REG,          0x60010054
+.equ INTMTX_CORE0_CPU_INTR_FROM_CPU_0_MAP_REG,     0x60010058
+.equ INTMTX_CORE0_CPU_INTR_FROM_CPU_1_MAP_REG,     0x6001005C
+.equ INTMTX_CORE0_CPU_INTR_FROM_CPU_2_MAP_REG,     0x60010060
+.equ INTMTX_CORE0_CPU_INTR_FROM_CPU_3_MAP_REG,     0x60010064
+.equ INTMTX_CORE0_ASSIST_DEBUG_INTR_MAP_REG,       0x60010068
+.equ INTMTX_CORE0_TRACE_INTR_MAP_REG,              0x6001006C
+.equ INTMTX_CORE0_CACHE_INTR_MAP_REG,              0x60010070
+.equ INTMTX_CORE0_CPU_PERI_TIMEOUT_INTR_MAP_REG,   0x60010074
+.equ INTMTX_CORE0_GPIO_INTERRUPT_PRO_MAP_REG,      0x60010078
+.equ INTMTX_CORE0_HP_PERI_TIMEOUT_INTR_MAP_REG,    0x60010084
+.equ INTMTX_CORE0_HP_APM_M0_INTR_MAP_REG,          0x6001008C
+.equ INTMTX_CORE0_HP_APM_M1_INTR_MAP_REG,          0x60010090
+.equ INTMTX_CORE0_HP_APM_M2_INTR_MAP_REG,          0x60010094
+.equ INTMTX_CORE0_HP_APM_M3_INTR_MAP_REG,          0x60010098
+.equ INTMTX_CORE0_LP_APM0_INTR_MAP_REG,            0x6001009C
+.equ INTMTX_CORE0_MSPI_INTR_MAP_REG,               0x600100A0
+.equ INTMTX_CORE0_I2S_INTR_MAP_REG,                0x600100A4
+.equ INTMTX_CORE0_UHCI0_INTR_MAP_REG,              0x600100A8
+.equ INTMTX_CORE0_UART0_INTR_MAP_REG,              0x600100AC
+.equ INTMTX_CORE0_UART1_INTR_MAP_REG,              0x600100B0
+.equ INTMTX_CORE0_LEDC_INTR_MAP_REG,               0x600100B4
+.equ INTMTX_CORE0_TWAI0_INTR_MAP_REG,              0x600100B8
+.equ INTMTX_CORE0_TWAI1_INTR_MAP_REG,              0x600100BC
+.equ INTMTX_CORE0_USB_INTR_MAP_REG,                0x600100C0
+.equ INTMTX_CORE0_RMT_INTR_MAP_REG,                0x600100C4
+.equ INTMTX_CORE0_I2C_EXT0_INTR_MAP_REG,           0x600100C8
+.equ INTMTX_CORE0_TG0_T0_INTR_MAP_REG,             0x600100CC
+.equ INTMTX_CORE0_TG0_WDT_INTR_MAP_REG,            0x600100D4
+.equ INTMTX_CORE0_TG1_T0_INTR_MAP_REG,             0x600100D8
+.equ INTMTX_CORE0_TG1_WDT_INTR_MAP_REG,            0x600100E0
+.equ INTMTX_CORE0_SYSTIMER_TARGET0_INTR_MAP_REG,   0x600100E4
+.equ INTMTX_CORE0_SYSTIMER_TARGET1_INTR_MAP_REG,   0x600100E8
+.equ INTMTX_CORE0_SYSTIMER_TARGET2_INTR_MAP_REG,   0x600100EC
+.equ INTMTX_CORE0_APB_ADC_INTR_MAP_REG,            0x600100F0
+.equ INTMTX_CORE0_PWM_INTR_MAP_REG,                0x600100F4
+.equ INTMTX_CORE0_PCNT_INTR_MAP_REG,               0x600100F8
+.equ INTMTX_CORE0_PARL_IO_INTR_MAP_REG,            0x600100FC
+.equ INTMTX_CORE0_SLC0_INTR_MAP_REG,               0x60010100
+.equ INTMTX_CORE0_SLC1_INTR_MAP_REG,               0x60010104
+.equ INTMTX_CORE0_DMA_IN_CH0_INTR_MAP_REG,         0x60010108
+.equ INTMTX_CORE0_DMA_IN_CH1_INTR_MAP_REG,         0x6001010C
+.equ INTMTX_CORE0_DMA_IN_CH2_INTR_MAP_REG,         0x60010110
+.equ INTMTX_CORE0_DMA_OUT_CH0_INTR_MAP_REG,        0x60010114
+.equ INTMTX_CORE0_DMA_OUT_CH1_INTR_MAP_REG,        0x60010118
+.equ INTMTX_CORE0_DMA_OUT_CH2_INTR_MAP_REG,        0x6001011C
+.equ INTMTX_CORE0_GPSPI2_INTR_MAP_REG,             0x60010120
+.equ INTMTX_CORE0_AES_INTR_MAP_REG,                0x60010124
+.equ INTMTX_CORE0_SHA_INTR_MAP_REG,                0x60010128
+.equ INTMTX_CORE0_RSA_INTR_MAP_REG,                0x6001012C
+.equ INTMTX_CORE0_ECC_INTR_MAP_REG,                0x60010130
+# Interrupt Status Register
+.equ INTMTX_CORE0_INT_STATUS_0_REG,                0x60010134
+.equ INTMTX_CORE0_INT_STATUS_1_REG,                0x60010138
+.equ INTMTX_CORE0_INT_STATUS_2_REG,                0x6001013C
+# Version Register
+.equ INTMTX_CORE0_INTERRUPT_REG_DATE_REG,          0x600107FC
+######################################################
+
+######################################################
+# Interrupt Priority Registers
+# # (TRM 376)
+######################################################
+.equ INTPRI_BASE,                            0x600C5000
+# Configuration Registers
+.equ INTPRI_CORE0_CPU_INT_ENABLE_REG,        0x600C5000
+.equ INTPRI_CORE0_CPU_INT_TYPE_REG,          0x600C5004
+.equ INTPRI_CORE0_CPU_INT_EIP_STATUS_REG,    0x600C5008
+.equ INTPRI_CORE0_CPU_INT_PRI_0_REG,         0x600C500C
+.equ INTPRI_CORE0_CPU_INT_PRI_1_REG,         0x600C5010
+.equ INTPRI_CORE0_CPU_INT_PRI_2_REG,         0x600C5014
+.equ INTPRI_CORE0_CPU_INT_PRI_3_REG,         0x600C5018
+.equ INTPRI_CORE0_CPU_INT_PRI_4_REG,         0x600C501C
+.equ INTPRI_CORE0_CPU_INT_PRI_5_REG,         0x600C5020
+.equ INTPRI_CORE0_CPU_INT_PRI_6_REG,         0x600C5024
+.equ INTPRI_CORE0_CPU_INT_PRI_7_REG,         0x600C5028
+.equ INTPRI_CORE0_CPU_INT_PRI_8_REG,         0x600C502C
+.equ INTPRI_CORE0_CPU_INT_PRI_9_REG,         0x600C5030
+.equ INTPRI_CORE0_CPU_INT_PRI_10_REG,        0x600C5034
+.equ INTPRI_CORE0_CPU_INT_PRI_11_REG,        0x600C5038
+.equ INTPRI_CORE0_CPU_INT_PRI_12_REG,        0x600C503C
+.equ INTPRI_CORE0_CPU_INT_PRI_13_REG,        0x600C5040
+.equ INTPRI_CORE0_CPU_INT_PRI_14_REG,        0x600C5044
+.equ INTPRI_CORE0_CPU_INT_PRI_15_REG,        0x600C5048
+.equ INTPRI_CORE0_CPU_INT_PRI_16_REG,        0x600C504C
+.equ INTPRI_CORE0_CPU_INT_PRI_17_REG,        0x600C5050
+.equ INTPRI_CORE0_CPU_INT_PRI_18_REG,        0x600C5054
+.equ INTPRI_CORE0_CPU_INT_PRI_19_REG,        0x600C5058
+.equ INTPRI_CORE0_CPU_INT_PRI_20_REG,        0x600C505C
+.equ INTPRI_CORE0_CPU_INT_PRI_21_REG,        0x600C5060
+.equ INTPRI_CORE0_CPU_INT_PRI_22_REG,        0x600C5064
+.equ INTPRI_CORE0_CPU_INT_PRI_23_REG,        0x600C5068
+.equ INTPRI_CORE0_CPU_INT_PRI_24_REG,        0x600C506C
+.equ INTPRI_CORE0_CPU_INT_PRI_25_REG,        0x600C5070
+.equ INTPRI_CORE0_CPU_INT_PRI_26_REG,        0x600C5074
+.equ INTPRI_CORE0_CPU_INT_PRI_27_REG,        0x600C5078
+.equ INTPRI_CORE0_CPU_INT_PRI_28_REG,        0x600C507C
+.equ INTPRI_CORE0_CPU_INT_PRI_29_REG,        0x600C5080
+.equ INTPRI_CORE0_CPU_INT_PRI_30_REG,        0x600C5084
+.equ INTPRI_CORE0_CPU_INT_PRI_31_REG,        0x600C5088
+.equ INTPRI_CORE0_CPU_INT_THRESH_REG,        0x600C508C
+.equ INTPRI_CORE0_CPU_INT_CLEAR_REG,         0x600C50A8
+# Interrupt Registers
+.equ INTPRI_CPU_INTR_FROM_CPU_0_REG,         0x600C5090
+.equ INTPRI_CPU_INTR_FROM_CPU_1_REG,         0x600C5094
+.equ INTPRI_CPU_INTR_FROM_CPU_2_REG,         0x600C5098
+.equ INTPRI_CPU_INTR_FROM_CPU_3_REG,         0x600C509C
+# Version Register
+.equ INTPRI_DATE_REG,                        0x600C50A0
+######################################################
+
+######################################################
+# Event Task Matrix (SOC_ETM)
+# (TRM 396)
+######################################################
+.equ SOC_ETM_BASE,                    0x60013000
+# Configuration Register
+.equ SOC_ETM_CH_ENA_AD0_REG,          0x60013000
+.equ SOC_ETM_CH_ENA_AD0_SET_REG,      0x60013004
+.equ SOC_ETM_CH_ENA_AD0_CLR_REG,      0x60013008
+.equ SOC_ETM_CH_ENA_AD1_REG,          0x6001300C
+.equ SOC_ETM_CH_ENA_AD1_SET_REG,      0x60013010
+.equ SOC_ETM_CH_ENA_AD1_CLR_REG,      0x60013014
+.equ SOC_ETM_CH0_EVT_ID_REG,          0x60013018
+.equ SOC_ETM_CH0_TASK_ID_REG,         0x6001301C
+.equ SOC_ETM_CH1_EVT_ID_REG,          0x60013020
+.equ SOC_ETM_CH1_TASK_ID_REG,         0x60013024
+.equ SOC_ETM_CH2_EVT_ID_REG,          0x60013028
+.equ SOC_ETM_CH2_TASK_ID_REG,         0x6001302C
+.equ SOC_ETM_CH3_EVT_ID_REG,          0x60013030
+.equ SOC_ETM_CH3_TASK_ID_REG,         0x60013034
+.equ SOC_ETM_CH4_EVT_ID_REG,          0x60013038
+.equ SOC_ETM_CH4_TASK_ID_REG,         0x6001303C
+.equ SOC_ETM_CH5_EVT_ID_REG,          0x60013040
+.equ SOC_ETM_CH5_TASK_ID_REG,         0x60013044
+.equ SOC_ETM_CH6_EVT_ID_REG,          0x60013048
+.equ SOC_ETM_CH6_TASK_ID_REG,         0x6001304C
+.equ SOC_ETM_CH7_EVT_ID_REG,          0x60013050
+.equ SOC_ETM_CH7_TASK_ID_REG,         0x60013054
+.equ SOC_ETM_CH8_EVT_ID_REG,          0x60013058
+.equ SOC_ETM_CH8_TASK_ID_REG,         0x6001305C
+.equ SOC_ETM_CH9_EVT_ID_REG,          0x60013060
+.equ SOC_ETM_CH9_TASK_ID_REG,         0x60013064
+.equ SOC_ETM_CH10_EVT_ID_REG,         0x60013068
+.equ SOC_ETM_CH10_TASK_ID_REG,        0x6001306C
+.equ SOC_ETM_CH11_EVT_ID_REG,         0x60013070
+.equ SOC_ETM_CH11_TASK_ID_REG,        0x60013074
+.equ SOC_ETM_CH12_EVT_ID_REG,         0x60013078
+.equ SOC_ETM_CH12_TASK_ID_REG,        0x6001307C
+.equ SOC_ETM_CH13_EVT_ID_REG,         0x60013080
+.equ SOC_ETM_CH13_TASK_ID_REG,        0x60013084
+.equ SOC_ETM_CH14_EVT_ID_REG,         0x60013088
+.equ SOC_ETM_CH14_TASK_ID_REG,        0x6001308C
+.equ SOC_ETM_CH15_EVT_ID_REG,         0x60013090
+.equ SOC_ETM_CH15_TASK_ID_REG,        0x60013094
+.equ SOC_ETM_CH16_EVT_ID_REG,         0x60013098
+.equ SOC_ETM_CH16_TASK_ID_REG,        0x6001309C
+.equ SOC_ETM_CH17_EVT_ID_REG,         0x600130A0
+.equ SOC_ETM_CH17_TASK_ID_REG,        0x600130A4
+.equ SOC_ETM_CH18_EVT_ID_REG,         0x600130A8
+.equ SOC_ETM_CH18_TASK_ID_REG,        0x600130AC
+.equ SOC_ETM_CH19_EVT_ID_REG,         0x600130B0
+.equ SOC_ETM_CH19_TASK_ID_REG,        0x600130B4
+.equ SOC_ETM_CH20_EVT_ID_REG,         0x600130B8
+.equ SOC_ETM_CH20_TASK_ID_REG,        0x600130BC
+.equ SOC_ETM_CH21_EVT_ID_REG,         0x600130C0
+.equ SOC_ETM_CH21_TASK_ID_REG,        0x600130C4
+.equ SOC_ETM_CH22_EVT_ID_REG,         0x600130C8
+.equ SOC_ETM_CH22_TASK_ID_REG,        0x600130CC
+.equ SOC_ETM_CH23_EVT_ID_REG,         0x600130D0
+.equ SOC_ETM_CH23_TASK_ID_REG,        0x600130D4
+.equ SOC_ETM_CH24_EVT_ID_REG,         0x600130D8
+.equ SOC_ETM_CH24_TASK_ID_REG,        0x600130DC
+.equ SOC_ETM_CH25_EVT_ID_REG,         0x600130E0
+.equ SOC_ETM_CH25_TASK_ID_REG,        0x600130E4
+.equ SOC_ETM_CH26_EVT_ID_REG,         0x600130E8
+.equ SOC_ETM_CH26_TASK_ID_REG,        0x600130EC
+.equ SOC_ETM_CH27_EVT_ID_REG,         0x600130F0
+.equ SOC_ETM_CH27_TASK_ID_REG,        0x600130F4
+.equ SOC_ETM_CH28_EVT_ID_REG,         0x600130F8
+.equ SOC_ETM_CH28_TASK_ID_REG,        0x600130FC
+.equ SOC_ETM_CH29_EVT_ID_REG,         0x60013100
+.equ SOC_ETM_CH29_TASK_ID_REG,        0x60013104
+.equ SOC_ETM_CH30_EVT_ID_REG,         0x60013108
+.equ SOC_ETM_CH30_TASK_ID_REG,        0x6001310C
+.equ SOC_ETM_CH31_EVT_ID_REG,         0x60013110
+.equ SOC_ETM_CH31_TASK_ID_REG,        0x60013114
+.equ SOC_ETM_CH32_EVT_ID_REG,         0x60013118
+.equ SOC_ETM_CH32_TASK_ID_REG,        0x6001311C
+.equ SOC_ETM_CH33_EVT_ID_REG,         0x60013120
+.equ SOC_ETM_CH33_TASK_ID_REG,        0x60013124
+.equ SOC_ETM_CH34_EVT_ID_REG,         0x60013128
+.equ SOC_ETM_CH34_TASK_ID_REG,        0x6001312C
+.equ SOC_ETM_CH35_EVT_ID_REG,         0x60013130
+.equ SOC_ETM_CH35_TASK_ID_REG,        0x60013134
+.equ SOC_ETM_CH36_EVT_ID_REG,         0x60013138
+.equ SOC_ETM_CH36_TASK_ID_REG,        0x6001313C
+.equ SOC_ETM_CH37_EVT_ID_REG,         0x60013140
+.equ SOC_ETM_CH37_TASK_ID_REG,        0x60013144
+.equ SOC_ETM_CH38_EVT_ID_REG,         0x60013148
+.equ SOC_ETM_CH38_TASK_ID_REG,        0x6001314C
+.equ SOC_ETM_CH39_EVT_ID_REG,         0x60013150
+.equ SOC_ETM_CH39_TASK_ID_REG,        0x60013154
+.equ SOC_ETM_CH40_EVT_ID_REG,         0x60013158
+.equ SOC_ETM_CH40_TASK_ID_REG,        0x6001315C
+.equ SOC_ETM_CH41_EVT_ID_REG,         0x60013160
+.equ SOC_ETM_CH41_TASK_ID_REG,        0x60013164
+.equ SOC_ETM_CH42_EVT_ID_REG,         0x60013168
+.equ SOC_ETM_CH42_TASK_ID_REG,        0x6001316C
+.equ SOC_ETM_CH43_EVT_ID_REG,         0x60013170
+.equ SOC_ETM_CH43_TASK_ID_REG,        0x60013174
+.equ SOC_ETM_CH44_EVT_ID_REG,         0x60013178
+.equ SOC_ETM_CH44_TASK_ID_REG,        0x6001317C
+.equ SOC_ETM_CH45_EVT_ID_REG,         0x60013180
+.equ SOC_ETM_CH45_TASK_ID_REG,        0x60013184
+.equ SOC_ETM_CH46_EVT_ID_REG,         0x60013188
+.equ SOC_ETM_CH46_TASK_ID_REG,        0x6001318C
+.equ SOC_ETM_CH47_EVT_ID_REG,         0x60013190
+.equ SOC_ETM_CH47_TASK_ID_REG,        0x60013194
+.equ SOC_ETM_CH48_EVT_ID_REG,         0x60013198
+.equ SOC_ETM_CH48_TASK_ID_REG,        0x6001319C
+.equ SOC_ETM_CH49_EVT_ID_REG,         0x600131A0
+.equ SOC_ETM_CH49_TASK_ID_REG,        0x600131A4
+.equ SOC_ETM_CLK_EN_REG,              0x600131A8
+# Version Register
+.equ SOC_ETM_DATE_REG,                0x600131AC
+######################################################
+
+######################################################
+# Low-Power Management
+# Power Management Unit (PMU)
+# Low-power Always-on (LP_AON)
+# RTC Timer (RTC_TIMER)
+# Low-power Analog Peripheral (LP_ANA_PERI)
+# (TRM 403)
+######################################################
+
+# PMU Register
+# Power Management Unit (PMU)
+.equ PMU_BASE,                        0x600B0000
+.equ PMU_HP_ACTIVE_DIG_POWER_REG,     0x600B0000
+.equ PMU_HP_ACTIVE_ICG_HP_FUNC_REG,   0x600B0004
+.equ PMU_HP_ACTIVE_ICG_HP_APB_REG,    0x600B0008
+.equ PMU_HP_ACTIVE_HP_SYS_CNTL_REG,   0x600B0010
+.equ PMU_HP_ACTIVE_HP_CK_POWER_REG,   0x600B0014
+.equ PMU_HP_ACTIVE_BACKUP_REG,        0x600B001C
+.equ PMU_HP_ACTIVE_BACKUP_CLK_REG,    0x600B0020
+.equ PMU_HP_ACTIVE_SYSCLK_REG,        0x600B0024
+.equ PMU_HP_ACTIVE_HP_REGULATOR0_REG, 0x600B0028
+.equ PMU_HP_ACTIVE_XTAL_REG,          0x600B0030
+.equ PMU_HP_MODEM_DIG_POWER_REG,      0x600B0034
+.equ PMU_HP_MODEM_ICG_HP_FUNC_REG,    0x600B0038
+.equ PMU_HP_MODEM_ICG_HP_APB_REG,     0x600B003C
+.equ PMU_HP_MODEM_HP_SYS_CNTL_REG,    0x600B0044
+.equ PMU_HP_MODEM_HP_CK_POWER_REG,    0x600B0048
+.equ PMU_HP_MODEM_BACKUP_REG,         0x600B0050
+.equ PMU_HP_MODEM_BACKUP_CLK_REG,     0x600B0054
+.equ PMU_HP_MODEM_SYSCLK_REG,         0x600B0058
+.equ PMU_HP_MODEM_HP_REGULATOR0_REG,  0x600B005C
+.equ PMU_HP_MODEM_XTAL_REG,           0x600B0064
+.equ PMU_HP_SLEEP_DIG_POWER_REG,      0x600B0068
+.equ PMU_HP_SLEEP_ICG_HP_FUNC_REG,    0x600B006C
+.equ PMU_HP_SLEEP_ICG_HP_APB_REG,     0x600B0070
+.equ PMU_HP_SLEEP_HP_SYS_CNTL_REG,    0x600B0078
+.equ PMU_HP_SLEEP_HP_CK_POWER_REG,    0x600B007C
+.equ PMU_HP_SLEEP_BACKUP_REG,         0x600B0084
+.equ PMU_HP_SLEEP_BACKUP_CLK_REG,     0x600B0088
+.equ PMU_HP_SLEEP_SYSCLK_REG,         0x600B008C
+.equ PMU_HP_SLEEP_HP_REGULATOR0_REG,  0x600B0090
+.equ PMU_HP_SLEEP_XTAL_REG,           0x600B0098
+.equ PMU_HP_SLEEP_LP_DIG_POWER_REG,   0x600B00A8
+.equ PMU_HP_SLEEP_LP_CK_POWER_REG,    0x600B00AC
+.equ PMU_LP_SLEEP_XTAL_REG,           0x600B00BC
+.equ PMU_LP_SLEEP_LP_DIG_POWER_REG,   0x600B00C0
+.equ PMU_LP_SLEEP_LP_CK_POWER_REG,    0x600B00C4
+.equ PMU_POWER_PD_MEM_MASK_REG,       0x600B0110
+.equ PMU_POWER_CK_WAIT_CNTL_REG,      0x600B011C
+.equ PMU_SLP_WAKEUP_CNTL0_REG,        0x600B0120
+.equ PMU_SLP_WAKEUP_CNTL1_REG,        0x600B0124
+.equ PMU_SLP_WAKEUP_CNTL2_REG,        0x600B0128
+.equ PMU_SLP_WAKEUP_CNTL4_REG,        0x600B0130
+.equ PMU_SLP_WAKEUP_STATUS0_REG,      0x600B0140
+.equ PMU_SLP_WAKEUP_STATUS1_REG,      0x600B0144
+.equ PMU_INT_RAW_REG,                 0x600B015C
+.equ PMU_HP_INT_ST_REG,               0x600B0160
+.equ PMU_HP_INT_ENA_REG,              0x600B0164
+.equ PMU_HP_INT_CLR_REG,              0x600B0168
+.equ PMU_LP_INT_RAW_REG,              0x600B016C
+.equ PMU_LP_INT_ST_REG,               0x600B0170
+.equ PMU_LP_INT_ENA_REG,              0x600B0174
+.equ PMU_LP_INT_CLR_REG,              0x600B0178
+.equ PMU_LP_CPU_PWR0_REG,             0x600B017C
+.equ PMU_LP_CPU_PWR1_REG,             0x600B0180
+.equ PMU_HP_LP_CPU_COMM_REG,          0x600B0184
+.equ PMU_DATE_REG,                    0x600B03FC
+
+# Low-power Always-on (LP_AON)
+.equ LP_AON_BASE,                     0x600B1000
+.equ LP_AON_STORE0_REG,               0x600B1000
+.equ LP_AON_STORE1_REG,               0x600B1004
+.equ LP_AON_STORE2_REG,               0x600B1008
+.equ LP_AON_STORE3_REG,               0x600B100C
+.equ LP_AON_STORE4_REG,               0x600B1010
+.equ LP_AON_STORE5_REG,               0x600B1014
+.equ LP_AON_STORE6_REG,               0x600B1018
+.equ LP_AON_STORE7_REG,               0x600B101C
+.equ LP_AON_STORE8_REG,               0x600B1020
+.equ LP_AON_STORE9_REG,               0x600B1024
+.equ LP_AON_SYS_CFG_REG,              0x600B1034
+.equ LP_AON_CPUCORE0_CFG_REG,         0x600B1038
+
+# RTC Timer (RTC_TIMER)
+.equ RTC_TIMER_BASE,                  0x600B0C00
+.equ RTC_TIMER_TAR0_LOW_REG,          0x600B0C00
+.equ RTC_TIMER_TAR0_HIGH_REG,         0x600B0C04
+.equ RTC_TIMER_TAR1_LOW_REG,          0x600B0C08
+.equ RTC_TIMER_TAR1_HIGH_REG,         0x600B0C0C
+.equ RTC_TIMER_UPDATE_REG,            0x600B0C10
+.equ RTC_TIMER_MAIN_BUF0_LOW_REG,     0x600B0C14
+.equ RTC_TIMER_MAIN_BUF0_HIGH_REG,    0x600B0C18
+.equ RTC_TIMER_MAIN_BUF1_LOW_REG,     0x600B0C1C
+.equ RTC_TIMER_MAIN_BUF1_HIGH_REG,    0x600B0C20
+.equ RTC_TIMER_INT_RAW_REG,           0x600B0C28
+.equ RTC_TIMER_INT_ST_REG,            0x600B0C2C
+.equ RTC_TIMER_INT_ENA_REG,           0x600B0C30
+.equ RTC_TIMER_INT_CLR_REG,           0x600B0C34
+.equ RTC_TIMER_LP_INT_RAW_REG,        0x600B0C38
+.equ RTC_TIMER_LP_INT_ST_REG,         0x600B0C3C
+.equ RTC_TIMER_LP_INT_ENA_REG,        0x600B0C40
+.equ RTC_TIMER_LP_INT_CLR_REG,        0x600B0C44
+
+# Brownout Detector
+# Low-power Analog Peripheral (LP_ANA_PERI)
+.equ LP_ANA_PERI_BASE,                0x600B2C00
+.equ LP_ANA_BOD_MODE0_CNTL_REG,       0x600B2C00
+.equ LP_ANA_BOD_MODE1_CNTL_REG,       0x600B2C04
+.equ LP_ANA_FIB_ENABLE_REG,           0x600B2C0C
+.equ LP_ANA_INT_RAW_REG,              0x600B2C10
+.equ LP_ANA_INT_ST_REG,               0x600B2C14
+.equ LP_ANA_INT_ENA_REG,              0x600B2C18
+.equ LP_ANA_INT_CLR_REG,              0x600B2C1C
+.equ LP_ANA_LP_INT_RAW_REG,           0x600B2C20
+.equ LP_ANA_LP_INT_ST_REG,            0x600B2C24
+.equ LP_ANA_LP_INT_ENA_REG,           0x600B2C28
+.equ LP_ANA_LP_INT_CLR_REG,           0x600B2C2C
+.equ LP_ANA_DATE_REG,                 0x600B2FFC
+######################################################
+
+######################################################
 # System Timer (SYSTIMER)
 # (TRM 488)
 ######################################################
@@ -469,107 +1140,820 @@
 ######################################################
 
 ######################################################
-# PCR Registers (PCR) (Power Clock Reset)
-# (TRM 305)
+# Watchdog Timers (WDT)
+# (TRM 535)
 ######################################################
-.equ PCR_BASE,                              0x60096000
 # Configuration Registers
-.equ PCR_UART0_CONF_REG,                    0x60096000
-.equ PCR_UART0_SCLK_CONF_REG,               0x60096004
-.equ PCR_UART0_PD_CTRL_REG,                 0x60096008
-.equ PCR_UART1_CONF_REG,                    0x6009600C
-.equ PCR_UART1_SCLK_CONF_REG,               0x60096010
-.equ PCR_UART1_PD_CTRL_REG,                 0x60096014
-.equ PCR_I2C_CONF_REG,                      0x60096020
-.equ PCR_I2C_SCLK_CONF_REG,                 0x60096024
-.equ PCR_UHCI_CONF_REG,                     0x60096028
-.equ PCR_RMT_CONF_REG,                      0x6009602C
-.equ PCR_RMT_SCLK_CONF_REG,                 0x60096030
-.equ PCR_LEDC_CONF_REG,                     0x60096034
-.equ PCR_LEDC_SCLK_CONF_REG,                0x60096038
-.equ PCR_TIMERGROUP0_CONF_REG,              0x6009603C
-.equ PCR_TIMERGROUP0_TIMER_CLK_CONF_REG,    0x60096040
-.equ PCR_TIMERGROUP0_WDT_CLK_CONF_REG,      0x60096044
-.equ PCR_TIMERGROUP1_CONF_REG,              0x60096048
-.equ PCR_TIMERGROUP1_TIMER_CLK_CONF_REG,    0x6009604C
-.equ PCR_TIMERGROUP1_WDT_CLK_CONF_REG,      0x60096050
-.equ PCR_SYSTIMER_CONF_REG,                 0x60096054
-.equ PCR_SYSTIMER_FUNC_CLK_CONF_REG,        0x60096058
-.equ PCR_TWAI0_CONF_REG,                    0x6009605C
-.equ PCR_TWAI0_FUNC_CLK_CONF_REG,           0x60096060
-.equ PCR_TWAI1_CONF_REG,                    0x60096064
-.equ PCR_TWAI1_FUNC_CLK_CONF_REG,           0x60096068
-.equ PCR_I2S_CONF_REG,                      0x6009606C
-.equ PCR_I2S_TX_CLKM_CONF_REG,              0x60096070
-.equ PCR_I2S_TX_CLKM_DIV_CONF_REG,          0x60096074
-.equ PCR_I2S_RX_CLKM_CONF_REG,              0x60096078
-.equ PCR_I2S_RX_CLKM_DIV_CONF_REG,          0x6009607C
-.equ PCR_SARADC_CONF_REG,                   0x60096080
-.equ PCR_SARADC_CLKM_CONF_REG,              0x60096084
-.equ PCR_TSENS_CLK_CONF_REG,                0x60096088
-.equ PCR_USB_SERIAL_JTAG_CONF_REG,          0x6009608C
-.equ PCR_INTMTX_CONF_REG,                   0x60096090
-.equ PCR_PCNT_CONF_REG,                     0x60096094
-.equ PCR_ETM_CONF_REG,                      0x60096098
-.equ PCR_PWM_CONF_REG,                      0x6009609C
-.equ PCR_PWM_CLK_CONF_REG,                  0x600960A0
-.equ PCR_PARL_IO_CONF_REG,                  0x600960A4
-.equ PCR_PARL_CLK_RX_CONF_REG,              0x600960A8
-.equ PCR_PARL_CLK_TX_CONF_REG,              0x600960AC
-.equ PCR_SDIO_SLAVE_CONF_REG,               0x600960B0
-.equ PCR_GDMA_CONF_REG,                     0x600960BC
-.equ PCR_SPI2_CONF_REG,                     0x600960C0
-.equ PCR_SPI2_CLKM_CONF_REG,                0x600960C4
-.equ PCR_AES_CONF_REG,                      0x600960C8
-.equ PCR_SHA_CONF_REG,                      0x600960CC
-.equ PCR_RSA_CONF_REG,                      0x600960D0
-.equ PCR_RSA_PD_CTRL_REG,                   0x600960D4
-.equ PCR_ECC_CONF_REG,                      0x600960D8
-.equ PCR_ECC_PD_CTRL_REG,                   0x600960DC
-.equ PCR_DS_CONF_REG,                       0x600960E0
-.equ PCR_HMAC_CONF_REG,                     0x600960E4
-.equ PCR_IOMUX_CONF_REG,                    0x600960E8
-.equ PCR_IOMUX_CLK_CONF_REG,                0x600960EC
-.equ PCR_MEM_MONITOR_CONF_REG,              0x600960F0
-.equ PCR_TRACE_CONF_REG,                    0x600960FC
-.equ PCR_ASSIST_CONF_REG,                   0x60096100
-.equ PCR_CACHE_CONF_REG,                    0x60096104
-.equ PCR_MODEM_APB_CONF_REG,                0x60096108
-.equ PCR_TIMEOUT_CONF_REG,                  0x6009610C
-.equ PCR_SYSCLK_CONF_REG,                   0x60096110
-.equ PCR_CPU_WAITI_CONF_REG,                0x60096114
-.equ PCR_CPU_FREQ_CONF_REG,                 0x60096118
-.equ PCR_AHB_FREQ_CONF_REG,                 0x6009611C
-.equ PCR_APB_FREQ_CONF_REG,                 0x60096120
-.equ PCR_PLL_DIV_CLK_EN_REG,                0x60096128
-.equ PCR_CTRL_32K_CONF_REG,                 0x60096134
-.equ PCR_SRAM_POWER_CONF_REG,               0x60096138
-.equ PCR_RESET_EVENT_BYPASS_REG,            0x60096FF0
-# Frequency Statistics Register
-.equ PCR_SYSCLK_FREQ_QUERY_0_REG,           0x60096124
-# Version Register
-.equ PCR_DATE_REG,                          0x60096FFC
+.equ LP_WDT_BASE,                           0x600B1C00
+.equ LP_WDT_RWDT_CONFIG0_REG,               0x600B1C00
+.equ LP_WDT_RWDT_CONFIG1_REG,               0x600B1C04
+.equ LP_WDT_RWDT_CONFIG2_REG,               0x600B1C08
+.equ LP_WDT_RWDT_CONFIG3_REG,               0x600B1C0C
+.equ LP_WDT_RWDT_CONFIG4_REG,               0x600B1C10
+.equ LP_WDT_RWDT_FEED_REG,                  0x600B1C14
+.equ LP_WDT_RWDT_WPROTECT_REG,              0x600B1C18
+.equ LP_WDT_SWD_CONFIG_REG,                 0x600B1C1C
+.equ LP_WDT_SWD_WPROTECT_REG,               0x600B1C20
+.equ LP_WDT_INT_RAW_REG,                    0x600B1C24
+.equ LP_WDT_INT_ST_REG,                     0x600B1C28
+.equ LP_WDT_INT_ENA_REG,                    0x600B1C2C
+.equ LP_WDT_INT_CLR_REG,                    0x600B1C30
+.equ LP_WDT_DATE_REG,                       0x600B1FFC
 ######################################################
 
 ######################################################
-# Low-power Clock/Reset (LP_CLKRST)
-# (TRM 307)
+# Permission Control (PMS)
+# Access Permission Management Controller (HP_APM)
+# Low-Power Access Permission Management  (LP_APM)
+# Trusted Execution Environment           (TEE)
+# Low-power Trusted Execution Environment (LP_TEE)
+# (TRM 544)
 ######################################################
-.equ LP_CLKRST_BASE,                        0x600B0400
+
+# Access Permission Management Controller (HP_APM)
+# High Performance APM Registers (HP_APM_REG)
+.equ HP_APM_BASE,                       0x60099000
+.equ HP_APM_REGION_FILTER_EN_REG,       0x60099000
+.equ HP_APM_REGION0_ADDR_START_REG,     0x60099004
+.equ HP_APM_REGION1_ADDR_START_REG,     0x60099010
+.equ HP_APM_REGION2_ADDR_START_REG,     0x6009901C
+.equ HP_APM_REGION3_ADDR_START_REG,     0x60099028
+.equ HP_APM_REGION4_ADDR_START_REG,     0x60099034
+.equ HP_APM_REGION5_ADDR_START_REG,     0x60099040
+.equ HP_APM_REGION6_ADDR_START_REG,     0x6009904C
+.equ HP_APM_REGION7_ADDR_START_REG,     0x60099058
+.equ HP_APM_REGION8_ADDR_START_REG,     0x60099064
+.equ HP_APM_REGION9_ADDR_START_REG,     0x60099070
+.equ HP_APM_REGION10_ADDR_START_REG,    0x6009907C
+.equ HP_APM_REGION11_ADDR_START_REG,    0x60099088
+.equ HP_APM_REGION12_ADDR_START_REG,    0x60099094
+.equ HP_APM_REGION13_ADDR_START_REG,    0x600990A0
+.equ HP_APM_REGION14_ADDR_START_REG,    0x600990AC
+.equ HP_APM_REGION15_ADDR_START_REG,    0x600990B8
+.equ HP_APM_REGION0_ADDR_END_REG,       0x60099008
+.equ HP_APM_REGION1_ADDR_END_REG,       0x60099014
+.equ HP_APM_REGION2_ADDR_END_REG,       0x60099020
+.equ HP_APM_REGION3_ADDR_END_REG,       0x6009902C
+.equ HP_APM_REGION4_ADDR_END_REG,       0x60099038
+.equ HP_APM_REGION5_ADDR_END_REG,       0x60099044
+.equ HP_APM_REGION6_ADDR_END_REG,       0x60099050
+.equ HP_APM_REGION7_ADDR_END_REG,       0x6009905C
+.equ HP_APM_REGION8_ADDR_END_REG,       0x60099068
+.equ HP_APM_REGION9_ADDR_END_REG,       0x60099074
+.equ HP_APM_REGION10_ADDR_END_REG,      0x60099080
+.equ HP_APM_REGION11_ADDR_END_REG,      0x6009908C
+.equ HP_APM_REGION12_ADDR_END_REG,      0x60099098
+.equ HP_APM_REGION13_ADDR_END_REG,      0x600990A4
+.equ HP_APM_REGION14_ADDR_END_REG,      0x600990B0
+.equ HP_APM_REGION15_ADDR_END_REG,      0x600990BC
+.equ HP_APM_REGION0_ATTR_REG,           0x6009900C
+.equ HP_APM_REGION1_ATTR_REG,           0x60099018
+.equ HP_APM_REGION2_ATTR_REG,           0x60099024
+.equ HP_APM_REGION3_ATTR_REG,           0x60099030
+.equ HP_APM_REGION4_ATTR_REG,           0x6009903C
+.equ HP_APM_REGION5_ATTR_REG,           0x60099048
+.equ HP_APM_REGION6_ATTR_REG,           0x60099054
+.equ HP_APM_REGION7_ATTR_REG,           0x60099060
+.equ HP_APM_REGION8_ATTR_REG,           0x6009906C
+.equ HP_APM_REGION9_ATTR_REG,           0x60099078
+.equ HP_APM_REGION10_ATTR_REG,          0x60099084
+.equ HP_APM_REGION11_ATTR_REG,          0x60099090
+.equ HP_APM_REGION12_ATTR_REG,          0x6009909C
+.equ HP_APM_REGION13_ATTR_REG,          0x600990A8
+.equ HP_APM_REGION14_ATTR_REG,          0x600990B4
+.equ HP_APM_REGION15_ATTR_REG,          0x600990C0
+.equ HP_APM_FUNC_CTRL_REG,              0x600990C4
+.equ HP_APM_M0_STATUS_REG,              0x600990C8
+.equ HP_APM_M0_STATUS_CLR_REG,          0x600990CC
+.equ HP_APM_M0_EXCEPTION_INFO0_REG,     0x600990D0
+.equ HP_APM_M0_EXCEPTION_INFO1_REG,     0x600990D4
+.equ HP_APM_M1_STATUS_REG,              0x600990D8
+.equ HP_APM_M1_STATUS_CLR_REG,          0x600990DC
+.equ HP_APM_M1_EXCEPTION_INFO0_REG,     0x600990E0
+.equ HP_APM_M1_EXCEPTION_INFO1_REG,     0x600990E4
+.equ HP_APM_M2_STATUS_REG,              0x600990E8
+.equ HP_APM_M2_STATUS_CLR_REG,          0x600990EC
+.equ HP_APM_M2_EXCEPTION_INFO0_REG,     0x600990F0
+.equ HP_APM_M2_EXCEPTION_INFO1_REG,     0x600990F4
+.equ HP_APM_M3_STATUS_REG,              0x600990F8
+.equ HP_APM_M3_STATUS_CLR_REG,          0x600990FC
+.equ HP_APM_M3_EXCEPTION_INFO0_REG,     0x60099100
+.equ HP_APM_M3_EXCEPTION_INFO1_REG,     0x60099104
+.equ HP_APM_INT_EN_REG,                 0x60099108
+.equ HP_APM_CLOCK_GATE_REG,             0x6009910C
+.equ HP_APM_DATE_REG,                   0x600997FC
+
+
+# Low-Power Access Permission Management (LP_APM)
+.equ LP_APM_BASE,                       0x600B3800
+.equ LP_APM_REGION_FILTER_EN_REG,       0x600B3800
+.equ LP_APM_REGION0_ADDR_START_REG,     0x600B3804
+.equ LP_APM_REGION1_ADDR_START_REG,     0x600B3810
+.equ LP_APM_REGION2_ADDR_START_REG,     0x600B381C
+.equ LP_APM_REGION3_ADDR_START_REG,     0x600B3828
+.equ LP_APM_REGION0_ADDR_END_REG,       0x600B3808
+.equ LP_APM_REGION1_ADDR_END_REG,       0x600B3814
+.equ LP_APM_REGION2_ADDR_END_REG,       0x600B3820
+.equ LP_APM_REGION3_ADDR_END_REG,       0x600B382C
+.equ LP_APM_REGION0_ATTR_REG,           0x600B380C
+.equ LP_APM_REGION1_ATTR_REG,           0x600B3818
+.equ LP_APM_REGION2_ATTR_REG,           0x600B3824
+.equ LP_APM_REGION3_ATTR_REG,           0x600B3830
+.equ LP_APM_FUNC_CTRL_REG,              0x600B38C4
+.equ LP_APM_M0_STATUS_REG,              0x600B38C8
+.equ LP_APM_M0_STATUS_CLR_REG,          0x600B38CC
+.equ LP_APM_M0_EXCEPTION_INFO0_REG,     0x600B38D0
+.equ LP_APM_M0_EXCEPTION_INFO1_REG,     0x600B38D4
+.equ LP_APM_M1_STATUS_REG,              0x600B38D8
+.equ LP_APM_M1_STATUS_CLR_REG,          0x600B38DC
+.equ LP_APM_M1_EXCEPTION_INFO0_REG,     0x600B38E0
+.equ LP_APM_M1_EXCEPTION_INFO1_REG,     0x600B38E4
+.equ LP_APM_INT_EN_REG,                 0x600B38E8
+.equ LP_APM_CLOCK_GATE_REG,             0x600B38EC
+.equ LP_APM_DATE_REG,                   0x600B38FC
+
+
+# Low Power APM0 Registers (LP_APM0_REG)
+.equ LP_APM0_BASE,                      0x6009A000
+.equ LP_APM0_REGION_FILTER_EN_REG,      0x6009A000
+.equ LP_APM0_REGION0_ADDR_START_REG,    0x6009A004
+.equ LP_APM0_REGION1_ADDR_START_REG,    0x6009A010
+.equ LP_APM0_REGION2_ADDR_START_REG,    0x6009A01C
+.equ LP_APM0_REGION3_ADDR_START_REG,    0x6009A028
+.equ LP_APM0_REGION0_ADDR_END_REG,      0x6009A008
+.equ LP_APM0_REGION1_ADDR_END_REG,      0x6009A014
+.equ LP_APM0_REGION2_ADDR_END_REG,      0x6009A020
+.equ LP_APM0_REGION3_ADDR_END_REG,      0x6009A02C
+.equ LP_APM0_REGION0_ATTR_REG,          0x6009A00C
+.equ LP_APM0_REGION1_ATTR_REG,          0x6009A018
+.equ LP_APM0_REGION2_ATTR_REG,          0x6009A024
+.equ LP_APM0_REGION3_ATTR_REG,          0x6009A030
+.equ LP_APM0_FUNC_CTRL_REG,             0x6009A0C4
+.equ LP_APM0_M0_STATUS_REG,             0x6009A0C8
+.equ LP_APM0_M0_STATUS_CLR_REG,         0x6009A0CC
+.equ LP_APM0_M0_EXCEPTION_INFO0_REG,    0x6009A0D0
+.equ LP_APM0_M0_EXCEPTION_INFO1_REG,    0x6009A0D4
+.equ LP_APM0_INT_EN_REG,                0x6009A0D8
+.equ LP_APM0_CLOCK_GATE_REG,            0x6009A0DC
+.equ LP_APM0_DATE_REG,                  0x6009A7FC
+
+
+# High Performance TEE Registers (TEE)
+# Trusted Execution Environment (TEE)
+.equ TEE_BASE,                0x60098000
+.equ TEE_M0_MODE_CTRL_REG,    0x60098000
+.equ TEE_M1_MODE_CTRL_REG,    0x60098004
+.equ TEE_M2_MODE_CTRL_REG,    0x60098008
+.equ TEE_M3_MODE_CTRL_REG,    0x6009800C
+.equ TEE_M4_MODE_CTRL_REG,    0x60098010
+.equ TEE_M5_MODE_CTRL_REG,    0x60098014
+.equ TEE_M6_MODE_CTRL_REG,    0x60098018
+.equ TEE_M7_MODE_CTRL_REG,    0x6009801C
+.equ TEE_M8_MODE_CTRL_REG,    0x60098020
+.equ TEE_M9_MODE_CTRL_REG,    0x60098024
+.equ TEE_M10_MODE_CTRL_REG,   0x60098028
+.equ TEE_M11_MODE_CTRL_REG,   0x6009802C
+.equ TEE_M12_MODE_CTRL_REG,   0x60098030
+.equ TEE_M13_MODE_CTRL_REG,   0x60098034
+.equ TEE_M14_MODE_CTRL_REG,   0x60098038
+.equ TEE_M15_MODE_CTRL_REG,   0x6009803C
+.equ TEE_M16_MODE_CTRL_REG,   0x60098040
+.equ TEE_M17_MODE_CTRL_REG,   0x60098044
+.equ TEE_M18_MODE_CTRL_REG,   0x60098048
+.equ TEE_M19_MODE_CTRL_REG,   0x6009804C
+.equ TEE_M20_MODE_CTRL_REG,   0x60098050
+.equ TEE_M21_MODE_CTRL_REG,   0x60098054
+.equ TEE_M22_MODE_CTRL_REG,   0x60098058
+.equ TEE_M23_MODE_CTRL_REG,   0x6009805C
+.equ TEE_M24_MODE_CTRL_REG,   0x60098060
+.equ TEE_M25_MODE_CTRL_REG,   0x60098064
+.equ TEE_M26_MODE_CTRL_REG,   0x60098068
+.equ TEE_M27_MODE_CTRL_REG,   0x6009806C
+.equ TEE_M28_MODE_CTRL_REG,   0x60098070
+.equ TEE_M29_MODE_CTRL_REG,   0x60098074
+.equ TEE_M30_MODE_CTRL_REG,   0x60098078
+.equ TEE_M31_MODE_CTRL_REG,   0x6009807C
+.equ TEE_CLOCK_GATE_REG,      0x60098080
+.equ TEE_DATE_REG,            0x60098FFC
+
+
+# Low Power TEE Registers (LP_TEE)
+# Low-power Trusted Execution Environment (LP_TEE)
+.equ LP_TEE_BASE,             0x600B3400
+.equ LP_TEE_M0_MODE_CTRL_REG, 0x600B3400
+.equ LP_TEE_CLOCK_GATE_REG,   0x600B3404
+.equ LP_TEE_FORCE_ACC_HP_REG, 0x600B3490
+.equ LP_TEE_DATE_REG,         0x600B34FC
+######################################################
+
+######################################################
+# HP System Registers (HP_SYSREG)
+# (TRM 580)
+######################################################
+.equ HP_SYSREG_BASE,                         0x60095000
+.equ HP_SYSTEM_EXTERNAL_DEVICE_ENCRYPT_DECRYPT_CONTROL_REG, 0x60095000
+.equ HP_SYSTEM_SEC_DPA_CONF_REG,             0x60095008
+.equ HP_SYSTEM_CORE_DEBUG_RUNSTALL_CONF_REG, 0x60095040
+.equ HP_SYSTEM_CPU_PERI_TIMEOUT_CONF_REG,    0x6009500C
+.equ HP_SYSTEM_CPU_PERI_TIMEOUT_ADDR_REG,    0x60095010
+.equ HP_SYSTEM_CPU_PERI_TIMEOUT_UID_REG,     0x60095014
+.equ HP_SYSTEM_HP_PERI_TIMEOUT_CONF_REG,     0x60095018
+.equ HP_SYSTEM_HP_PERI_TIMEOUT_ADDR_REG,     0x6009501C
+.equ HP_SYSTEM_HP_PERI_TIMEOUT_UID_REG,      0x60095020
+.equ HP_SYSTEM_DATE_REG,                     0x600953FC
+
+#.equ LP_PERI_BUS_TIMEOUT_CONF_REG,           0x00000000
+#.equ LP_PERI_BUS_TIMEOUT_ADDR_REG,           0x00000000
+#.equ LP_PERI_BUS_TIMEOUT_UID_REG,            0x00000000
+######################################################
+
+######################################################
+# Debug Assistant (ASSIST_DEBUG)
+# (TRM 588)
+######################################################
+.equ ASSIST_DEBUG_BASE,                          0x600C2000
+# Monitor configuration registers
+.equ ASSIST_DEBUG_CORE_0_MONTR_ENA_REG,          0x600C2000
+.equ ASSIST_DEBUG_CORE_0_AREA_DRAM0_0_MIN_REG,   0x600C2010
+.equ ASSIST_DEBUG_CORE_0_AREA_DRAM0_0_MAX_REG,   0x600C2014
+.equ ASSIST_DEBUG_CORE_0_AREA_DRAM0_1_MIN_REG,   0x600C2018
+.equ ASSIST_DEBUG_CORE_0_AREA_DRAM0_1_MAX_REG,   0x600C201C
+.equ ASSIST_DEBUG_CORE_0_AREA_PIF_0_MIN_REG,     0x600C2020
+.equ ASSIST_DEBUG_CORE_0_AREA_PIF_0_MAX_REG,     0x600C2024
+.equ ASSIST_DEBUG_CORE_0_AREA_PIF_1_MIN_REG,     0x600C2028
+.equ ASSIST_DEBUG_CORE_0_AREA_PIF_1_MAX_REG,     0x600C202C
+.equ ASSIST_DEBUG_CORE_0_AREA_PC_REG,            0x600C2030
+.equ ASSIST_DEBUG_CORE_0_AREA_SP_REG,            0x600C2034
+.equ ASSIST_DEBUG_CORE_0_SP_MIN_REG,             0x600C2038
+.equ ASSIST_DEBUG_CORE_0_SP_MAX_REG,             0x600C203C
+.equ ASSIST_DEBUG_CORE_0_SP_PC_REG,              0x600C2040
+# Interrupt configuration registers
+.equ ASSIST_DEBUG_CORE_0_INTR_RAW_REG,           0x600C2004
+.equ ASSIST_DEBUG_CORE_0_INTR_ENA_REG,           0x600C2008
+.equ ASSIST_DEBUG_CORE_0_INTR_CLR_REG,           0x600C200C
+# PC logging configuration register
+.equ ASSIST_DEBUG_CORE_0_RCD_EN_REG,             0x600C2044
+# PC logging status registers
+.equ ASSIST_DEBUG_CORE_0_RCD_PDEBUGPC_REG,       0x600C2048
+.equ ASSIST_DEBUG_CORE_0_RCD_PDEBUGSP_REG,       0x600C204C
+# CPU Status Registers
+.equ ASSIST_DEBUG_CORE_0_LASTPC_BEFORE_EXCEPTION_REG, 0x600C2070
+.equ ASSIST_DEBUG_CORE_0_DEBUG_MODE_REG,         0x600C2074
+# Clock control register
+.equ ASSIST_DEBUG_CLOCK_GATE_REG,                0x600C2078
+# Version Register
+.equ ASSIST_DEBUG_DATE_REG,                      0x600C23FC
+######################################################
+
+######################################################
+# AES Accelerator (AES)
+# (TRM 620)
+######################################################
+.equ AES_BASE,                0x60088000
+# Key Registers
+.equ AES_KEY_0_REG,           0x60088000
+.equ AES_KEY_1_REG,           0x60088004
+.equ AES_KEY_2_REG,           0x60088008
+.equ AES_KEY_3_REG,           0x6008800C
+.equ AES_KEY_4_REG,           0x60088010
+.equ AES_KEY_5_REG,           0x60088014
+.equ AES_KEY_6_REG,           0x60088018
+.equ AES_KEY_7_REG,           0x6008801C
+# TEXT_IN Registers
+.equ AES_TEXT_IN_0_REG,       0x60088020
+.equ AES_TEXT_IN_1_REG,       0x60088024
+.equ AES_TEXT_IN_2_REG,       0x60088028
+.equ AES_TEXT_IN_3_REG,       0x6008802C
+# TEXT_OUT Registers
+.equ AES_TEXT_OUT_0_REG,      0x60088030
+.equ AES_TEXT_OUT_1_REG,      0x60088034
+.equ AES_TEXT_OUT_2_REG,      0x60088038
+.equ AES_TEXT_OUT_3_REG,      0x6008803C
+# Control / Configuration Registers
+.equ AES_MODE_REG,            0x60088040
+.equ AES_DMA_ENABLE_REG,      0x60088090
+.equ AES_BLOCK_MODE_REG,      0x60088094
+.equ AES_BLOCK_NUM_REG,       0x60088098
+.equ AES_INC_SEL_REG,         0x6008809C
+.equ AES_TRIGGER_REG,         0x60088048
+.equ AES_DMA_EXIT_REG,        0x600880B8
+# Status Registers 
+.equ AES_STATE_REG,           0x6008804C
+# Interrupt Registers
+.equ AES_INT_CLR_REG,         0x600880AC
+.equ AES_INT_ENA_REG,         0x600880B0
+######################################################
+
+######################################################
+# ECC Accelerator (ECC)
+# (TRM 635)
+######################################################
+.equ ECC_BASE,                0x6008B000
+# Interrupt Registers
+.equ ECC_MULT_INT_RAW_REG,    0x6008B00C
+.equ ECC_MULT_INT_ST_REG,     0x6008B010
+.equ ECC_MULT_INT_ENA_REG,    0x6008B014
+.equ ECC_MULT_INT_CLR_REG,    0x6008B018
+# Configuration Register
+.equ ECC_MULT_CONF_REG,       0x6008B01C
+# Version Register
+.equ ECC_MULT_DATE_REG,       0x6008B0FC
+######################################################
+
+######################################################
+# HMAC Accelerator (HMAC)
+# (TRM 646)
+######################################################
+.equ HMAC_BASE,                     0x6008D000
+# Control/Status Registers
+.equ HMAC_SET_START_REG,            0x6008D040
+.equ HMAC_SET_PARA_FINISH_REG,      0x6008D04C
+.equ HMAC_SET_MESSAGE_ONE_REG,      0x6008D050
+.equ HMAC_SET_MESSAGE_ING_REG,      0x6008D054
+.equ HMAC_SET_MESSAGE_END_REG,      0x6008D058
+.equ HMAC_SET_RESULT_FINISH_REG,    0x6008D05C
+.equ HMAC_SET_INVALIDATE_JTAG_REG,  0x6008D060
+.equ HMAC_SET_INVALIDATE_DS_REG,    0x6008D064
+.equ HMAC_QUERY_ERROR_REG,          0x6008D068
+.equ HMAC_QUERY_BUSY_REG,           0x6008D06C
+.equ HMAC_SET_MESSAGE_PAD_REG,      0x6008D0F0
+.equ HMAC_ONE_BLOCK_REG,            0x6008D0F4
 # Configuration Registers
-.equ LP_CLKRST_LP_CLK_CONF_REG,             0x600B0400
-.equ LP_CLKRST_LP_CLK_PO_EN_REG,            0x600B0404
-.equ LP_CLKRST_LP_CLK_EN_REG,               0x600B0408
-.equ LP_CLKRST_LP_RST_EN_REG,               0x600B040C
-.equ LP_CLKRST_RESET_CAUSE_REG,             0x600B0410
-.equ LP_CLKRST_CPU_RESET_REG,               0x600B0414
-.equ LP_CLKRST_FOSC_CNTL_REG,               0x600B0418
-.equ LP_CLKRST_RC32K_CNTL_REG,              0x600B041C
-.equ LP_CLKRST_CLK_TO_HP_REG,               0x600B0420
-.equ LP_CLKRST_LPMEM_FORCE_REG,             0x600B0424
-.equ LP_CLKRST_LPPERI_REG,                  0x600B0428
-.equ LP_CLKRST_XTAL32K_REG,                 0x600B042C
-.equ LP_CLKRST_DATE_REG,                    0x600B07FC
+.equ HMAC_SET_PARA_PURPOSE_REG,     0x6008D044
+.equ HMAC_SET_PARA_KEY_REG,         0x6008D048
+.equ HMAC_SOFT_JTAG_CTRL_REG,       0x6008D0F8
+.equ HMAC_WR_JTAG_REG,              0x6008D0FC
+# HMAC Message Block
+.equ HMAC_WR_MESSAGE_0_REG,         0x6008D080
+.equ HMAC_WR_MESSAGE_1_REG,         0x6008D084
+.equ HMAC_WR_MESSAGE_2_REG,         0x6008D088
+.equ HMAC_WR_MESSAGE_3_REG,         0x6008D08C
+.equ HMAC_WR_MESSAGE_4_REG,         0x6008D090
+.equ HMAC_WR_MESSAGE_5_REG,         0x6008D094
+.equ HMAC_WR_MESSAGE_6_REG,         0x6008D098
+.equ HMAC_WR_MESSAGE_7_REG,         0x6008D09C
+.equ HMAC_WR_MESSAGE_8_REG,         0x6008D0A0
+.equ HMAC_WR_MESSAGE_9_REG,         0x6008D0A4
+.equ HMAC_WR_MESSAGE_10_REG,        0x6008D0A8
+.equ HMAC_WR_MESSAGE_11_REG,        0x6008D0AC
+.equ HMAC_WR_MESSAGE_12_REG,        0x6008D0B0
+.equ HMAC_WR_MESSAGE_13_REG,        0x6008D0B4
+.equ HMAC_WR_MESSAGE_14_REG,        0x6008D0B8
+.equ HMAC_WR_MESSAGE_15_REG,        0x6008D0BC
+# HMAC Upstream Result
+.equ HMAC_RD_RESULT_0_REG,          0x6008D0C0
+.equ HMAC_RD_RESULT_1_REG,          0x6008D0C4
+.equ HMAC_RD_RESULT_2_REG,          0x6008D0C8
+.equ HMAC_RD_RESULT_3_REG,          0x6008D0CC
+.equ HMAC_RD_RESULT_4_REG,          0x6008D0D0
+.equ HMAC_RD_RESULT_5_REG,          0x6008D0D4
+.equ HMAC_RD_RESULT_6_REG,          0x6008D0D8
+.equ HMAC_RD_RESULT_7_REG,          0x6008D0DC
+# Version Register
+.equ HMAC_DATE_REG,                 0x6008D0F8
+######################################################
+
+######################################################
+# RSA Accelerator (RSA)
+# (TRM 662)
+######################################################
+.equ RSA_BASE,                  0x6008A000
+# Control / Configuration Registers
+.equ RSA_M_PRIME_REG,           0x6008A800
+.equ RSA_MODE_REG,              0x6008A804
+.equ RSA_SET_START_MODEXP_REG,  0x6008A80C
+.equ RSA_SET_START_MODMULT_REG, 0x6008A810
+.equ RSA_SET_START_MULT_REG,    0x6008A814
+.equ RSA_QUERY_IDLE_REG,        0x6008A818
+.equ RSA_CONSTANT_TIME_REG,     0x6008A820
+.equ RSA_SEARCH_ENABLE_REG,     0x6008A824
+.equ RSA_SEARCH_POS_REG,        0x6008A828
+# Status Register
+.equ RSA_QUERY_CLEAN_REG,       0x6008A808
+# Interrupt Registers
+.equ RSA_INT_CLEAR_REG,         0x6008A81C
+.equ RSA_INT_ENA_REG,           0x6008A82C
+# Version Register
+.equ RSA_DATE_REG,              0x6008A830
+######################################################
+
+######################################################
+# SHA Accelerator (SHA)
+# (TRM 672)
+######################################################
+.equ SHA_BASE,                 0x60089000
+# Control / Configuration registers
+.equ SHA_MODE_REG,             0x60089000
+.equ SHA_CONTINUE_REG,         0x60089014
+.equ SHA_DMA_START_REG,        0x6008901C
+.equ SHA_START_REG,            0x60089010
+.equ SHA_DMA_CONTINUE_REG,     0x60089020
+.equ SHA_DMA_BLOCK_NUM_REG,    0x6008900C
+# Status Registers
+.equ SHA_BUSY_REG,             0x60089018
+# Interrupt Registers
+.equ SHA_CLEAR_IRQ_REG,        0x60089024
+.equ SHA_IRQ_ENA_REG,          0x60089028
+# Data Registers
+.equ SHA_H_0_REG,              0x60089040
+.equ SHA_H_1_REG,              0x60089044
+.equ SHA_H_2_REG,              0x60089048
+.equ SHA_H_3_REG,              0x6008904C
+.equ SHA_H_4_REG,              0x60089050
+.equ SHA_H_5_REG,              0x60089054
+.equ SHA_H_6_REG,              0x60089058
+.equ SHA_H_7_REG,              0x6008905C
+.equ SHA_M_0_REG,              0x60089080
+.equ SHA_M_1_REG,              0x60089084
+.equ SHA_M_2_REG,              0x60089088
+.equ SHA_M_3_REG,              0x6008908C
+.equ SHA_M_4_REG,              0x60089090
+.equ SHA_M_5_REG,              0x60089094
+.equ SHA_M_6_REG,              0x60089098
+.equ SHA_M_7_REG,              0x6008909C
+.equ SHA_M_8_REG,              0x600890A0
+.equ SHA_M_9_REG,              0x600890A4
+.equ SHA_M_10_REG,             0x600890A8
+.equ SHA_M_11_REG,             0x600890AC
+.equ SHA_M_12_REG,             0x600890B0
+.equ SHA_M_13_REG,             0x600890B4
+.equ SHA_M_14_REG,             0x600890B8
+.equ SHA_M_15_REG,             0x600890BC
+# Version Register
+.equ SHA_DATE_REG,             0x6008902C
+######################################################
+
+######################################################
+# Digital Signature (DS)
+# (TRM 683)
+######################################################
+.equ DS_BASE,                 0x6008C000
+# Configuration Registers
+.equ DS_IV_0_REG,             0x6008C630
+.equ DS_IV_1_REG,             0x6008C634
+.equ DS_IV_2_REG,             0x6008C638
+.equ DS_IV_3_REG,             0x6008C63C
+# Status/Control Registers
+.equ DS_SET_START_REG,        0x6008CE00
+.equ DS_SET_ME_REG,           0x6008CE04
+.equ DS_SET_FINISH_REG,       0x6008CE08
+.equ DS_QUERY_BUSY_REG,       0x6008CE0C
+.equ DS_QUERY_KEY_WRONG_REG,  0x6008CE10
+.equ DS_QUERY_CHECK_REG,      0x6008CE14
+# Version Control Register
+.equ DS_DATE_REG,             0x6008CE20
+######################################################
+
+######################################################
+# External Memory Encryption and Decryption (XTS_AES)
+# (TRM 693)
+######################################################
+.equ XTS_AES_BASE,            0x60002000
+# Plaintext Register Heap
+.equ XTS_AES_PLAIN_0_REG,     0x60002300
+.equ XTS_AES_PLAIN_1_REG,     0x60002304
+.equ XTS_AES_PLAIN_2_REG,     0x60002308
+.equ XTS_AES_PLAIN_3_REG,     0x6000230C
+.equ XTS_AES_PLAIN_4_REG,     0x60002310
+.equ XTS_AES_PLAIN_5_REG,     0x60002314
+.equ XTS_AES_PLAIN_6_REG,     0x60002318
+.equ XTS_AES_PLAIN_7_REG,     0x6000231C
+.equ XTS_AES_PLAIN_8_REG,     0x60002320
+.equ XTS_AES_PLAIN_9_REG,     0x60002324
+.equ XTS_AES_PLAIN_10_REG,    0x60002328
+.equ XTS_AES_PLAIN_11_REG,    0x6000232C
+.equ XTS_AES_PLAIN_12_REG,    0x60002330
+.equ XTS_AES_PLAIN_13_REG,    0x60002334
+.equ XTS_AES_PLAIN_14_REG,    0x60002338
+.equ XTS_AES_PLAIN_15_REG,    0x6000233C
+# Configuration Registers
+.equ XTS_AES_LINESIZE_REG,    0x60002340
+.equ XTS_AES_DESTINATION_REG, 0x60002344
+.equ XTS_AES_PHYSICAL_ADDRESS_REG, 0x60002348
+.equ XTS_AES_DPA_CTRL_REG,    0x60002388
+# Control/Status Registers
+.equ XTS_AES_TRIGGER_REG,     0x6000234C
+.equ XTS_AES_RELEASE_REG,     0x60002350
+.equ XTS_AES_DESTROY_REG,     0x60002354
+.equ XTS_AES_STATE_REG,       0x60002358
+# Version Register
+.equ XTS_AES_DATE_REG,        0x6000235C
+######################################################
+
+######################################################
+# Random Number Generator (RNG)
+# (TRM 705)
+######################################################
+.equ LPPERI_RNG_DATA_REG,     0x600B2808
+######################################################
+
+######################################################
+# UART Controller (UART, LP_UART, UHCI)
+# (TRM 707)
+######################################################
+.equ UART0_BASE,                    0x60000000
+.equ UART1_BASE,                    0x60001000
+# FIFO Configuration
+.equ UART0_FIFO_REG,                0x60000000
+.equ UART0_TOUT_CONF_SYNC_REG,      0x60000064
+# Interrupt Register
+.equ UART0_INT_RAW_REG,             0x60000004
+.equ UART0_INT_ST_REG,              0x60000008
+.equ UART0_INT_ENA_REG,             0x6000000C
+.equ UART0_INT_CLR_REG,             0x60000010
+# Configuration Registers
+.equ UART0_CLKDIV_SYNC_REG,         0x60000014
+.equ UART0_RX_FILT_REG,             0x60000018
+.equ UART0_CONF0_SYNC_REG,          0x60000020
+.equ UART0_CONF1_REG,               0x60000024
+.equ UART0_HWFC_CONF_SYNC_REG,      0x6000002C
+.equ UART0_SLEEP_CONF0_REG,         0x60000030
+.equ UART0_SLEEP_CONF1_REG,         0x60000034
+.equ UART0_SLEEP_CONF2_REG,         0x60000038
+.equ UART0_SWFC_CONF0_SYNC_REG,     0x6000003C
+.equ UART0_SWFC_CONF1_REG,          0x60000040
+.equ UART0_TXBRK_CONF_SYNC_REG,     0x60000044
+.equ UART0_IDLE_CONF_SYNC_REG,      0x60000048
+.equ UART0_RS485_CONF_SYNC_REG,     0x6000004C
+.equ UART0_CLK_CONF_REG,            0x60000088
+.equ UART0_REG_UPDATE_REG,          0x60000098
+.equ UART0_ID_REG,                  0x6000009C
+# Status Register
+.equ UART0_STATUS_REG,              0x6000001C
+.equ UART0_MEM_TX_STATUS_REG,       0x60000068
+.equ UART0_MEM_RX_STATUS_REG,       0x6000006C
+.equ UART0_FSM_STATUS_REG,          0x60000070
+.equ UART0_AFIFI_STATUS_REG,        0x60000090
+# AT Escape Sequence Selection Configuration
+.equ UART0_AT_CMD_PRECNT_SYNC_REG,  0x60000050
+.equ UART0_AT_CMD_POSTCNT_SYNC_REG, 0x60000054
+.equ UART0_AT_CMD_GAPTCNT_SYNC_REG, 0x60000058
+.equ UART0_AT_CMD_CHAR_SYNC_REG,    0x6000005C
+# Autobaud Register
+.equ UART0_POSPULSE_REG,            0x60000074
+.equ UART0_NEGPULSE_REG,            0x60000078
+.equ UART0_LOWPULSE_REG,            0x6000007C
+.equ UART0_HIGHPULSE_REG,           0x60000080
+.equ UART0_RXD_CNT_REG,             0x60000084
+# Version Register
+.equ UART0_DATE_REG,                0x6000008C
+
+
+# Low-power UART (LP_UART)
+.equ LP_UART_BASE,                    0x600B1400
+# FIFO Configuration
+.equ LP_UART_FIFO_REG,                0x600B1400
+.equ LP_UART_TOUT_CONF_SYNC_REG,      0x600B1464
+# LP UART Interrupt Register
+.equ LP_UART_INT_RAW_REG,             0x600B1404
+.equ LP_UART_INT_ST_REG,              0x600B1408
+.equ LP_UART_INT_ENA_REG,             0x600B140C
+.equ LP_UART_INT_CLR_REG,             0x600B1410
+# Configuration Register
+.equ LP_UART_CLKDIV_SYNC_REG,         0x600B1414
+.equ LP_UART_RX_FILT_REG,             0x600B1418
+.equ LP_UART_CONF0_SYNC_REG,          0x600B1420
+.equ LP_UART_CONF1_REG,               0x600B1424
+.equ LP_UART_HWFC_CONF_SYNC_REG,      0x600B142C
+.equ LP_UART_SLEEP_CONF0_REG,         0x600B1430
+.equ LP_UART_SLEEP_CONF1_REG,         0x600B1434
+.equ LP_UART_SLEEP_CONF2_REG,         0x600B1438
+.equ LP_UART_SWFC_CONF0_SYNC_REG,     0x600B143C
+.equ LP_UART_SWFC_CONF1_REG,          0x600B1440
+.equ LP_UART_TXBRK_CONF_SYNC_REG,     0x600B1444
+.equ LP_UART_IDLE_CONF_SYNC_REG,      0x600B1448
+.equ LP_UART_DELAY_CONF_SYNC_REG,     0x600B144C
+.equ LP_UART_CLK_CONF_REG,            0x600B1488
+.equ LP_UART_REG_UPDATE_REG,          0x600B1498
+.equ LP_UART_ID_REG,                  0x600B149C
+# Status Register
+.equ LP_UART_STATUS_REG,              0x600B141C
+.equ LP_UART_MEM_TX_STATUS_REG,       0x600B1468
+.equ LP_UART_MEM_RX_STATUS_REG,       0x600B146C
+.equ LP_UART_FSM_STATUS_REG,          0x600B1470
+.equ LP_UART_AFIFO_STATUS_REG,        0x600B1490
+# AT Escape Sequence Selection Configuration
+.equ LP_UART_AT_CMD_PRECNT_SYNC_REG,  0x600B1450
+.equ LP_UART_AT_CMD_POSTCNT_SYNC_REG, 0x600B1454
+.equ LP_UART_AT_CMD_GAPTOUT_SYNC_REG, 0x600B1458
+.equ LP_UART_AT_CMD_CHAR_SYNC_REG,    0x600B145C
+# Version Register
+.equ LP_UART_DATE_REG,                0x600B148C
+
+
+# UHCI Controller (UHCI)
+.equ UHCI_BASE,                     0x60005000
+# Configuration Registers
+.equ UHCI_CONF0_REG,                0x60005000
+.equ UHCI_CONF1_REG,                0x60005014
+.equ UHCI_ESCAPE_CONF_REG,          0x60005020
+.equ UHCI_HUNG_CONF_REG,            0x60005024
+.equ UHCI_ACK_NUM_REG,              0x60005028
+.equ UHCI_QUICK_SENT_REG,           0x60005030
+.equ UHCI_REG_Q0_WORD0_REG,         0x60005034
+.equ UHCI_REG_Q0_WORD1_REG,         0x60005038
+.equ UHCI_REG_Q1_WORD0_REG,         0x6000503C
+.equ UHCI_REG_Q1_WORD1_REG,         0x60005040
+.equ UHCI_REG_Q2_WORD0_REG,         0x60005044
+.equ UHCI_REG_Q2_WORD1_REG,         0x60005048
+.equ UHCI_REG_Q3_WORD0_REG,         0x6000504C
+.equ UHCI_REG_Q3_WORD1_REG,         0x60005050
+.equ UHCI_REG_Q4_WORD0_REG,         0x60005054
+.equ UHCI_REG_Q4_WORD1_REG,         0x60005058
+.equ UHCI_REG_Q5_WORD0_REG,         0x6000505C
+.equ UHCI_REG_Q5_WORD1_REG,         0x60005060
+.equ UHCI_REG_Q6_WORD0_REG,         0x60005064
+.equ UHCI_REG_Q6_WORD1_REG,         0x60005068
+.equ UHCI_ESC_CONF0_REG,            0x6000506C
+.equ UHCI_ESC_CONF1_REG,            0x60005070
+.equ UHCI_ESC_CONF2_REG,            0x60005074
+.equ UHCI_ESC_CONF3_REG,            0x60005078
+.equ UHCI_PKT_THRES_REG,            0x6000507C
+# Interrupt Registers
+.equ UHCI_INT_RAW_REG,              0x60005004
+.equ UHCI_INT_ST_REG,               0x60005008
+.equ UHCI_INT_ENA_REG,              0x6000500C
+.equ UHCI_INT_CLR_REG,              0x60005010
+# Status Registers
+.equ UHCI_STATE0_REG,               0x60005018
+.equ UHCI_STATE1_REG,               0x6000501C
+.equ UHCI_RX_HEAD_REG,              0x6000502C
+# Version Register
+.equ UHCI_DATE_REG,                 0x60005080
+######################################################
+
+######################################################
+# SPI Controller (SPI)
+# (TRM 793)
+######################################################
+.equ SPI2_BASE,               0x60081000
+# User-defined control registers
+.equ SPI2_CMD_REG,            0x60081000
+.equ SPI2_ADDR_REG,           0x60081004
+.equ SPI2_USER_REG,           0x60081010
+.equ SPI2_USER1_REG,          0x60081014
+.equ SPI2_USER2_REG,          0x60081018
+# Control and configuration registers
+.equ SPI2_CTRL_REG,           0x60081008
+.equ SPI2_MS_DLEN_REG,        0x6008101C
+.equ SPI2_MISC_REG,           0x60081020
+.equ SPI2_DMA_CONF_REG,       0x60081030
+.equ SPI2_SLAVE_REG,          0x600810E0
+.equ SPI2_SLAVE1_REG,         0x600810E4
+# Clock control registers
+.equ SPI2_CLOCK_REG,          0x6008100C
+.equ SPI2_CLK_GATE_REG,       0x600810E8
+# Timing registers
+.equ SPI2_DIN_MODE_REG,       0x60081024
+.equ SPI2_DIN_NUM_REG,        0x60081028
+.equ SPI2_DOUT_MODE_REG,      0x6008102C
+# Interrupt registers
+.equ SPI2_DMA_INT_ENA_REG,    0x60081034
+.equ SPI2_DMA_INT_CLR_REG,    0x60081038
+.equ SPI2_DMA_INT_RAW_REG,    0x6008103C
+.equ SPI2_DMA_INT_ST_REG,     0x60081040
+.equ SPI2_DMA_INT_SET_REG,    0x60081044
+# CPU-controlled data buffer
+.equ SPI2_W0_REG,             0x60081098
+.equ SPI2_W1_REG,             0x6008109C
+.equ SPI2_W2_REG,             0x600810A0
+.equ SPI2_W3_REG,             0x600810A4
+.equ SPI2_W4_REG,             0x600810A8
+.equ SPI2_W5_REG,             0x600810AC
+.equ SPI2_W6_REG,             0x600810B0
+.equ SPI2_W7_REG,             0x600810B4
+.equ SPI2_W8_REG,             0x600810B8
+.equ SPI2_W9_REG,             0x600810BC
+.equ SPI2_W10_REG,            0x600810C0
+.equ SPI2_W11_REG,            0x600810C4
+.equ SPI2_W12_REG,            0x600810C8
+.equ SPI2_W13_REG,            0x600810CC
+.equ SPI2_W14_REG,            0x600810D0
+.equ SPI2_W15_REG,            0x600810D4
+# Version register
+.equ SPI2_DATE_REG,           0x600810F0
+######################################################
+
+######################################################
+# I2C Controller (I2C)
+# (TRM 865)
+######################################################
+.equ I2C_BASE,                     0x60004000
+# Timing Registers
+.equ I2C_SCL_LOW_PERIOD_REG,       0x60004000
+.equ I2C_SDA_HOLD_REG,             0x60004030
+.equ I2C_SDA_SAMPLE_REG,           0x60004034
+.equ I2C_SCL_HIGH_PERIOD_REG,      0x60004038
+.equ I2C_SCL_START_HOLD_REG,       0x60004040
+.equ I2C_SCL_RSTART_SETUP_REG,     0x60004044
+.equ I2C_SCL_STOP_HOLD_REG,        0x60004048
+.equ I2C_SCL_STOP_SETUP_REG,       0x6000404C
+.equ I2C_SCL_ST_TIME_OUT_REG,      0x60004078
+.equ I2C_SCL_MAIN_ST_TIME_OUT_REG, 0x6000407C
+# Configuration Registers
+.equ I2C_CTR_REG,                  0x60004004
+.equ I2C_TO_REG,                   0x6000400C
+.equ I2C_SLAVE_ADDR_REG,           0x60004010
+.equ I2C_FIFO_CONF_REG,            0x60004018
+.equ I2C_FILTER_CFG_REG,           0x60004050
+.equ I2C_SCL_SP_CONF_REG,          0x60004080
+.equ I2C_SCL_STRETCH_CONF_REG,     0x60004084
+# Status Registers
+.equ I2C_SR_REG,                   0x60004008
+.equ I2C_FIFO_ST_REG,              0x60004014
+.equ I2C_DATA_REG,                 0x6000401C
+# Interrupt Registers
+.equ I2C_INT_RAW_REG,              0x60004020
+.equ I2C_INT_CLR_REG,              0x60004024
+.equ I2C_INT_ENA_REG,              0x60004028
+.equ I2C_INT_STATUS_REG,           0x6000402C
+# Command Registers
+.equ I2C_COMD0_REG,                0x60004058
+.equ I2C_COMD1_REG,                0x6000405C
+.equ I2C_COMD2_REG,                0x60004060
+.equ I2C_COMD3_REG,                0x60004064
+.equ I2C_COMD4_REG,                0x60004068
+.equ I2C_COMD5_REG,                0x6000406C
+.equ I2C_COMD6_REG,                0x60004070
+.equ I2C_COMD7_REG,                0x60004074
+# Version Register
+.equ I2C_DATE_REG,                 0x600040F8
+# Address Registers
+.equ I2C_TXFIFO_START_ADDR_REG,    0x60004100
+.equ I2C_RXFIFO_START_ADDR_REG,    0x60004180
+######################################################
+
+######################################################
+# I2S Controller (I2S)
+# (TRM 945)
+######################################################
+.equ I2S_BASE,                     0x6000C000
+# Interrupt registers
+.equ I2S_INT_RAW_REG,              0x6000C00C
+.equ I2S_INT_ST_REG,               0x6000C010
+.equ I2S_INT_ENA_REG,              0x6000C014
+.equ I2S_INT_CLR_REG,              0x6000C018
+# RX control and configuration registers
+.equ I2S_RX_CONF_REG,              0x6000C020
+.equ I2S_RX_CONF1_REG,             0x6000C028
+.equ I2S_TX_PCM2PDM_CONF_REG,      0x6000C040
+.equ I2S_TX_PCM2PDM_CONF1_REG,     0x6000C044
+.equ I2S_RX_TDM_CTRL_REG,          0x6000C050
+.equ I2S_RXEOF_NUM_REG,            0x6000C064
+# TX control and configuration registers
+.equ I2S_TX_CONF_REG,              0x6000C024
+.equ I2S_TX_CONF1_REG,             0x6000C02C
+.equ I2S_TX_TDM_CTRL_REG,          0x6000C054
+# RX clock and timing registers
+.equ I2S_RX_TIMING_REG,            0x6000C058
+# TX clock and timing registers
+.equ I2S_TX_TIMING_REG,            0x6000C05C
+# Control and configuration registers
+.equ I2S_LC_HUNG_CONF_REG,         0x6000C060
+.equ I2S_CONF_SIGLE_DATA_REG,      0x6000C068
+# TX Status Register
+.equ I2S_STATE_REG,                0x6000C06C
+# ETM Register
+.equ I2S_ETM_CONF_REG,             0x6000C070
+# Version Register
+.equ I2S_DATE_REG,                 0x6000C080
+######################################################
+
+######################################################
+# Pulse Count Controller (PCNT)
+# (TRM 985)
+######################################################
+.equ PCNT_BASE,           0x60012000
+# Configuration Register
+.equ PCNT_U0_CONF0_REG,   0x60012000
+.equ PCNT_U0_CONF1_REG,   0x60012004
+.equ PCNT_U0_CONF2_REG,   0x60012008
+.equ PCNT_U1_CONF0_REG,   0x6001200C
+.equ PCNT_U1_CONF1_REG,   0x60012010
+.equ PCNT_U1_CONF2_REG,   0x60012014
+.equ PCNT_U2_CONF0_REG,   0x60012018
+.equ PCNT_U2_CONF1_REG,   0x6001201C
+.equ PCNT_U2_CONF2_REG,   0x60012020
+.equ PCNT_U3_CONF0_REG,   0x60012024
+.equ PCNT_U3_CONF1_REG,   0x60012028
+.equ PCNT_U3_CONF2_REG,   0x6001202C
+.equ PCNT_CTRL_REG,       0x60012060
+# Status Register
+.equ PCNT_U0_CNT_REG,     0x60012030
+.equ PCNT_U1_CNT_REG,     0x60012034
+.equ PCNT_U2_CNT_REG,     0x60012038
+.equ PCNT_U3_CNT_REG,     0x6001203C
+.equ PCNT_U0_STATUS_REG,  0x60012050
+.equ PCNT_U1_STATUS_REG,  0x60012054
+.equ PCNT_U2_STATUS_REG,  0x60012058
+.equ PCNT_U3_STATUS_REG,  0x6001205C
+# Interrupt Register
+.equ PCNT_INT_RAW_REG,    0x60012040
+.equ PCNT_INT_ST_REG,     0x60012044
+.equ PCNT_INT_ENA_REG,    0x60012048
+.equ PCNT_INT_CLR_REG,    0x6001204C
+# Version Register
+.equ PCNT_DATE_REG,       0x600120FC
 ######################################################
 
 ######################################################
@@ -609,6 +1993,137 @@
 .equ USB_SERIAL_JTAG_BUS_RESET_ST_REG,      0x6000F068
 # Version Registers
 .equ USB_SERIAL_JTAG_DATE_REG,              0x6000F080
+######################################################
+
+######################################################
+# Two-wire Automotive Interface (TWAI)
+# (TRM 1036)
+######################################################
+.equ TWAI_BASE,                        0x6000B000
+# Configuration Registers
+.equ TWAI_MODE_REG,                    0x6000B000
+.equ TWAI_BUS_TIMING_0_REG,            0x6000B018
+.equ TWAI_BUS_TIMING_1_REG,            0x6000B01C
+.equ TWAI_ERR_WARNING_LIMIT_REG,       0x6000B034
+.equ TWAI_DATA_0_REG,                  0x6000B040
+.equ TWAI_DATA_1_REG,                  0x6000B044
+.equ TWAI_DATA_2_REG,                  0x6000B048
+.equ TWAI_DATA_3_REG,                  0x6000B04C
+.equ TWAI_DATA_4_REG,                  0x6000B050
+.equ TWAI_DATA_5_REG,                  0x6000B054
+.equ TWAI_DATA_6_REG,                  0x6000B058
+.equ TWAI_DATA_7_REG,                  0x6000B05C
+.equ TWAI_DATA_8_REG,                  0x6000B060
+.equ TWAI_DATA_9_REG,                  0x6000B064
+.equ TWAI_DATA_10_REG,                 0x6000B068
+.equ TWAI_DATA_11_REG,                 0x6000B06C
+.equ TWAI_DATA_12_REG,                 0x6000B070
+.equ TWAI_CLOCK_DIVIDER_REG,           0x6000B07C
+.equ TWAI_SW_STANDBY_CFG_REG,          0x6000B080
+.equ TWAI_HW_CFG_REG,                  0x6000B084
+.equ TWAI_HW_STANDBY_CNT_REG,          0x6000B088
+.equ TWAI_IDLE_INTR_CNT_REG,           0x6000B08C
+# Control Registers
+.equ TWAI_CMD_REG,                     0x6000B004
+# Status Register
+.equ TWAI_STATUS_REG,                  0x6000B008
+.equ TWAI_ARB_LOST_CAP_REG,            0x6000B02C
+.equ TWAI_ERR_CODE_CAP_REG,            0x6000B030
+.equ TWAI_RX_ERR_CNT_REG,              0x6000B038
+.equ TWAI_TX_ERR_CNT_REG,              0x6000B03C
+.equ TWAI_RX_MESSAGE_CNT_REG,          0x6000B074
+# Interrupt Registers
+.equ TWAI_INT_RAW_REG,                 0x6000B00C
+.equ TWAI_INT_ENA_REG,                 0x6000B010
+######################################################
+
+######################################################
+# SDIO 2.0 Controller (SDIO)
+# (TRM 1078)
+######################################################
+.equ SDIO_HINF_BASE,                   0x60016000
+.equ SDIO_SLC_BASE,                    0x60017000
+.equ SDIO_SLCHOST_BASE,                0x60018000
+
+.equ HINF_CFG_DATA0_REG,               0x60016000
+.equ HINF_CFG_DATA1_REG,               0x60016004
+.equ HINF_CFG_DATA7_REG,               0x6001601C
+.equ HINF_CIS_CONF_W0_REG,             0x60016020
+.equ HINF_CIS_CONF_W1_REG,             0x60016024
+.equ HINF_CIS_CONF_W2_REG,             0x60016028
+.equ HINF_CIS_CONF_W3_REG,             0x6001602C
+.equ HINF_CIS_CONF_W4_REG,             0x60016030
+.equ HINF_CIS_CONF_W5_REG,             0x60016034
+.equ HINF_CIS_CONF_W6_REG,             0x60016038
+.equ HINF_CIS_CONF_W7_REG,             0x6001603C
+.equ HINF_CFG_DATA16_REG,              0x60016040
+.equ HINF_CONF_STATUS_REG,             0x60016054
+
+.equ SDIO_SLCCONF0_REG,                0x60017000
+.equ SDIO_SLC0RX_LINK_REG,             0x6001703C
+.equ SDIO_SLC0RX_LINK_ADDR_REG,        0x60017040
+.equ SDIO_SLC0TX_LINK_REG,             0x60017044
+.equ SDIO_SLC0TX_LINK_ADDR_REG,        0x60017048
+.equ SDIO_SLC1RX_LINK_REG,             0x6001704C
+.equ SDIO_SLC1RX_LINK_ADDR_REG,        0x60017050
+.equ SDIO_SLC1TX_LINK_REG,             0x60017054
+.equ SDIO_SLC1TX_LINK_ADDR_REG,        0x60017058
+.equ SDIO_SLC0TOKEN1_REG,              0x60017064
+.equ SDIO_SLC1TOKEN1_REG,              0x6001706C
+.equ SDIO_SLCCONF1_REG,                0x60017070
+.equ SDIO_SLC_RX_DSCR_CONF_REG,        0x600170A8
+.equ SDIO_SLC0_LEN_CONF_REG,           0x600170F4
+.equ SDIO_SLC0_TX_SHAREMEM_START_REG,  0x60017154
+.equ SDIO_SLC0_TX_SHAREMEM_END_REG,    0x60017158
+.equ SDIO_SLC0_RX_SHAREMEM_START_REG,  0x6001715C
+.equ SDIO_SLC0_RX_SHAREMEM_END_REG,    0x60017160
+.equ SDIO_SLC1_TX_SHAREMEM_START_REG,  0x60017164
+.equ SDIO_SLC1_TX_SHAREMEM_END_REG,    0x60017168
+.equ SDIO_SLC1_RX_SHAREMEM_START_REG,  0x6001716C
+.equ SDIO_SLC1_RX_SHAREMEM_END_REG,    0x60017170
+.equ SDIO_SLC_BURST_LEN_REG,           0x6001717C
+
+.equ SDIO_SLC0INT_RAW_REG,             0x60017004
+.equ SDIO_SLC0INT_ST_REG,              0x60017008
+.equ SDIO_SLC0INT_ENA_REG,             0x6001700C
+.equ SDIO_SLC0INT_CLR_REG,             0x60017010
+.equ SDIO_SLC1INT_RAW_REG,             0x60017014
+.equ SDIO_SLC1INT_CLR_REG,             0x60017020
+.equ SDIO_SLCINTVEC_TOHOST_REG,        0x6001705C
+.equ SDIO_SLC1INT_ST1_REG,             0x6001714C
+.equ SDIO_SLC1INT_ENA1_REG,            0x60017150
+.equ SDIO_SLC0_LENGTH_REG,             0x600170F8
+
+.equ SLCHOST_CONF_REG,                 0x600181F0
+.equ SLCHOST_SLC0HOST_INT_RAW_REG,     0x60018050
+.equ SLCHOST_SLC1HOST_INT_RAW_REG,     0x60018054
+.equ SLCHOST_SLC0HOST_INT_ST_REG,      0x60018058
+.equ SLCHOST_SLC1HOST_INT_ST_REG,      0x6001805C
+.equ SLCHOST_CONF_W7_REG,              0x6001808C
+.equ SLCHOST_SLC0HOST_INT_CLR_REG,     0x600180D4
+.equ SLCHOST_SLC1HOST_INT_CLR_REG,     0x600180D8
+.equ SLCHOST_SLC0HOST_FUNC1_INT_ENA_REG, 0x600180DC
+.equ SLCHOST_SLC1HOST_FUNC1_INT_ENA_REG, 0x600180E0
+
+.equ SLCHOST_SLC0HOST_TOKEN_RDATA_REG, 0x60018044
+.equ SLCHOST_PKT_LEN_REG,              0x60018060
+.equ SLCHOST_SLC1HOST_TOKEN_RDATA_REG, 0x600180C4
+
+.equ SLCHOST_CONF_W0_REG,              0x6001806C
+.equ SLCHOST_CONF_W1_REG,              0x60018070
+.equ SLCHOST_CONF_W2_REG,              0x60018074
+.equ SLCHOST_CONF_W3_REG,              0x60018078
+.equ SLCHOST_CONF_W4_REG,              0x6001807C
+.equ SLCHOST_CONF_W6_REG,              0x60018088
+
+.equ SLCHOST_CONF_W8_REG,              0x6001809C
+.equ SLCHOST_CONF_W9_REG,              0x60018100
+.equ SLCHOST_CONF_W10_REG,             0x60018104
+.equ SLCHOST_CONF_W11_REG,             0x60018108
+.equ SLCHOST_CONF_W12_REG,             0x6001810C
+.equ SLCHOST_CONF_W13_REG,             0x60018110
+.equ SLCHOST_CONF_W14_REG,             0x60018114
+.equ SLCHOST_CONF_W15_REG,             0x60018118
 ######################################################
 
 ######################################################
@@ -689,30 +2204,177 @@
 ######################################################
 
 ######################################################
-# Watchdog Timers (WDT)
-# (TRM 535)
+# Motor Control PWM (MCPWM)
+# (TRM 1198)
 ######################################################
-# Configuration Registers
-.equ LP_WDT_BASE,                           0x600B1C00
-.equ LP_WDT_RWDT_CONFIG0_REG,               0x600B1C00
-.equ LP_WDT_RWDT_CONFIG1_REG,               0x600B1C04
-.equ LP_WDT_RWDT_CONFIG2_REG,               0x600B1C08
-.equ LP_WDT_RWDT_CONFIG3_REG,               0x600B1C0C
-.equ LP_WDT_RWDT_CONFIG4_REG,               0x600B1C10
-.equ LP_WDT_RWDT_FEED_REG,                  0x600B1C14
-.equ LP_WDT_RWDT_WPROTECT_REG,              0x600B1C18
-.equ LP_WDT_SWD_CONFIG_REG,                 0x600B1C1C
-.equ LP_WDT_SWD_WPROTECT_REG,               0x600B1C20
-.equ LP_WDT_INT_RAW_REG,                    0x600B1C24
-.equ LP_WDT_INT_ST_REG,                     0x600B1C28
-.equ LP_WDT_INT_ENA_REG,                    0x600B1C2C
-.equ LP_WDT_INT_CLR_REG,                    0x600B1C30
-.equ LP_WDT_DATE_REG,                       0x600B1FFC
+.equ MCPWM_BASE,                  0x60014000
+.equ MCPWM_CLK_CFG_REG,           0x60014000
+.equ MCPWM_TIMER0_CFG0_REG,       0x60014004
+.equ MCPWM_TIMER0_CFG1_REG,       0x60014008
+.equ MCPWM_TIMER0_SYNC_REG,       0x6001400C
+.equ MCPWM_TIMER0_STATUS_REG,     0x60014010
+.equ MCPWM_TIMER1_CFG0_REG,       0x60014014
+.equ MCPWM_TIMER1_CFG1_REG,       0x60014018
+.equ MCPWM_TIMER1_SYNC_REG,       0x6001401C
+.equ MCPWM_TIMER1_STATUS_REG,     0x60014020
+.equ MCPWM_TIMER2_CFG0_REG,       0x60014024
+.equ MCPWM_TIMER2_CFG1_REG,       0x60014028
+.equ MCPWM_TIMER2_SYNC_REG,       0x6001402C
+.equ MCPWM_TIMER2_STATUS_REG,     0x60014030
+.equ MCPWM_TIMER_SYNCI_CFG_REG,   0x60014034
+.equ MCPWM_OPERATOR_TIMERSEL_REG, 0x60014038
+.equ MCPWM_GEN0_STMP_CFG_REG,     0x6001403C
+.equ MCPWM_GEN0_TSTMP_A_REG,      0x60014040
+.equ MCPWM_GEN0_TSTMP_B_REG,      0x60014044
+.equ MCPWM_GEN0_CFG0_REG,         0x60014048
+.equ MCPWM_GEN0_FORCE_REG,        0x6001404C
+.equ MCPWM_GEN0_A_REG,            0x60014050
+.equ MCPWM_GEN0_B_REG,            0x60014054
+.equ MCPWM_DT0_CFG_REG,           0x60014058
+.equ MCPWM_DT0_FED_CFG_REG,       0x6001405C
+.equ MCPWM_DT0_RED_CFG_REG,       0x60014060
+.equ MCPWM_CARRIER0_CFG_REG,      0x60014064
+.equ MCPWM_FH0_CFG0_REG,          0x60014068
+.equ MCPWM_FH0_CFG1_REG,          0x6001406C
+.equ MCPWM_FH0_STATUS_REG,        0x60014070
+.equ MCPWM_GEN1_STMP_CFG_REG,     0x60014074
+.equ MCPWM_GEN1_TSTMP_A_REG,      0x60014078
+.equ MCPWM_GEN1_TSTMP_B_REG,      0x6001407C
+.equ MCPWM_GEN1_CFG0_REG,         0x60014080
+.equ MCPWM_GEN1_FORCE_REG,        0x60014084
+.equ MCPWM_GEN1_A_REG,            0x60014088
+.equ MCPWM_GEN1_B_REG,            0x6001408C
+.equ MCPWM_DT1_CFG_REG,           0x60014090
+.equ MCPWM_DT1_FED_CFG_REG,       0x60014094
+.equ MCPWM_DT1_RED_CFG_REG,       0x60014098
+.equ MCPWM_CARRIER1_CFG_REG,      0x6001409C
+.equ MCPWM_FH1_CFG0_REG,          0x600140A0
+.equ MCPWM_FH1_CFG1_REG,          0x600140A4
+.equ MCPWM_FH1_STATUS_REG,        0x600140A8
+.equ MCPWM_GEN2_STMP_CFG_REG,     0x600140AC
+.equ MCPWM_GEN2_TSTMP_A_REG,      0x600140B0
+.equ MCPWM_GEN2_TSTMP_B_REG,      0x600140B4
+.equ MCPWM_GEN2_CFG0_REG,         0x600140B8
+.equ MCPWM_GEN2_FORCE_REG,        0x600140BC
+.equ MCPWM_GEN2_A_REG,            0x600140C0
+.equ MCPWM_GEN2_B_REG,            0x600140C4
+.equ MCPWM_DT2_CFG_REG,           0x600140C8
+.equ MCPWM_DT2_FED_CFG_REG,       0x600140CC
+.equ MCPWM_DT2_RED_CFG_REG,       0x600140D0
+.equ MCPWM_CARRIER2_CFG_REG,      0x600140D4
+.equ MCPWM_FH2_CFG0_REG,          0x600140D8
+.equ MCPWM_FH2_CFG1_REG,          0x600140DC
+.equ MCPWM_FH2_STATUS_REG,        0x600140E0
+.equ MCPWM_FAULT_DETECT_REG,      0x600140E4
+.equ MCPWM_CAP_TIMER_CFG_REG,     0x600140E8
+.equ MCPWM_CAP_TIMER_PHASE_REG,   0x600140EC
+.equ MCPWM_CAP_CH0_CFG_REG,       0x600140F0
+.equ MCPWM_CAP_CH1_CFG_REG,       0x600140F4
+.equ MCPWM_CAP_CH2_CFG_REG,       0x600140F8
+.equ MCPWM_CAP_CH0_REG,           0x600140FC
+.equ MCPWM_CAP_CH1_REG,           0x60014100
+.equ MCPWM_CAP_CH2_REG,           0x60014104
+.equ MCPWM_CAP_STATUS_REG,        0x60014108
+.equ MCPWM_UPDATE_CFG_REG,        0x6001410C
+.equ MCPWM_INT_ENA_REG,           0x60014110
+.equ MCPWM_INT_RAW_REG,           0x60014114
+.equ MCPWM_INT_ST_REG,            0x60014118
+.equ MCPWM_INT_CLR_REG,           0x6001411C
+.equ MCPWM_EVT_EN_REG,            0x60014120
+.equ MCPWM_TASK_EN_REG,           0x60014124
+.equ MCPWM_CLK_REG,               0x60014128
+.equ MCPWM_VERSION_REG,           0x6001412C
 ######################################################
 
 ######################################################
-# Random Number Generator (RNG)
-# (TRM 705)
+# Remote Control Peripheral (RMT)
+# (TRM 1274)
 ######################################################
-.equ LPPERI_RNG_DATA_REG, 0x600B2808
+.equ RMT_BASE,                    0x60006000
+# FIFO R/W Registers
+.equ RMT_CH0DATA_REG,             0x60006000
+.equ RMT_CH1DATA_REG,             0x60006004
+.equ RMT_CH2DATA_REG,             0x60006008
+.equ RMT_CH3DATA_REG,             0x6000600C
+# Configuration Registers
+.equ RMT_CH0CONF0_REG,            0x60006010
+.equ RMT_CH1CONF0_REG,            0x60006014
+.equ RMT_CH2CONF0_REG,            0x60006018
+.equ RMT_CH2CONF1_REG,            0x6000601C
+.equ RMT_CH3CONF0_REG,            0x60006020
+.equ RMT_CH3CONF1_REG,            0x60006024
+.equ RMT_SYS_CONF_REG,            0x60006068
+.equ RMT_REF_CNT_RST_REG,         0x60006070
+# Status Registers
+.equ RMT_CH0STATUS_REG,           0x60006028
+.equ RMT_CH1STATUS_REG,           0x6000602C
+.equ RMT_CH2STATUS_REG,           0x60006030
+.equ RMT_CH3STATUS_REG,           0x60006034
+# Interrupt Registers
+.equ RMT_INT_RAW_REG,             0x60006038
+.equ RMT_INT_ST_REG,              0x6000603C
+.equ RMT_INT_ENA_REG,             0x60006040
+.equ RMT_INT_CLR_REG,             0x60006044
+# Carrier Wave Duty Cycle Registers
+.equ RMT_CH0CARRIER_DUTY_REG,     0x60006048
+.equ RMT_CH1CARRIER_DUTY_REG,     0x6000604C
+.equ RMT_CH2_RX_CARRIER_RM_REG,   0x60006050
+.equ RMT_CH3_RX_CARRIER_RM_REG,   0x60006054
+# TX Event Configuration Registers
+.equ RMT_CH0_TX_LIM_REG,          0x60006058
+.equ RMT_CH1_TX_LIM_REG,          0x6000605C
+.equ RMT_TX_SIM_REG,              0x6000606C
+# RX Event Configuration Registers
+.equ RMT_CH2_RX_LIM_REG,          0x60006060
+.equ RMT_CH3_RX_LIM_REG,          0x60006064
+# Version Register
+.equ RMT_DATE_REG,                0x600060CC
+######################################################
+
+######################################################
+# Parallel IO Controller (PARL_IO)
+# (TRM 1299)
+######################################################
+.equ PARL_IO_BASE,                0x60015000
+.equ PARL_IO_RX_CFG0_REG,         0x60015000
+.equ PARL_IO_RX_CFG1_REG,         0x60015004
+.equ PARL_IO_TX_CFG0_REG,         0x60015008
+.equ PARL_IO_TX_CFG1_REG,         0x6001500C
+.equ PARL_IO_ST_REG,              0x60015010
+.equ PARL_IO_INT_ENA_REG,         0x60015014
+.equ PARL_IO_INT_RAW_REG,         0x60015018
+.equ PARL_IO_INT_ST_REG,          0x6001501C
+.equ PARL_IO_INT_CLR_REG,         0x60015020
+.equ PARL_IO_CLK_REG,             0x60015120
+.equ PARL_IO_VERSION_REG,         0x600153FC
+######################################################
+
+######################################################
+# SAR ADC (APB_SARADC)
+# (TRM 1323)
+######################################################
+.equ ADC_BASE,                         0x6000E000
+# Configuration Registers
+.equ APB_SARADC_CTRL_REG,              0x6000E000
+.equ APB_SARADC_CTRL2_REG,             0x6000E004
+.equ APB_SARADC_FILTER_CTRL1_REG,      0x6000E008
+.equ APB_SARADC_SAR_PATT_TAB1_REG,     0x6000E018
+.equ APB_SARADC_SAR_PATT_TAB2_REG,     0x6000E01C
+.equ APB_SARADC_ONETIME_SAMPLE_REG,    0x6000E020
+.equ APB_SARADC_FILTER_CTRL0_REG,      0x6000E028
+.equ APB_SARADC_SAR1DATA_STATUS_REG,   0x6000E02C
+.equ APB_SARADC_THRES0_CTRL_REG,       0x6000E034
+.equ APB_SARADC_THRES1_CTRL_REG,       0x6000E038
+.equ APB_SARADC_THRES_CTRL_REG,        0x6000E03C
+.equ APB_SARADC_INT_ENA_REG,           0x6000E040
+.equ APB_SARADC_INT_RAW_REG,           0x6000E044
+.equ APB_SARADC_INT_ST_REG,            0x6000E048
+.equ APB_SARADC_INT_CLR_REG,           0x6000E04C
+.equ APB_SARADC_DMA_CONF_REG,          0x6000E050
+.equ APB_SARADC_APB_TSENS_CTRL_REG,    0x6000E058
+.equ APB_SARADC_APB_TSENS_CTRL2_REG,   0x6000E05C
+.equ APB_SARADC_CALI_REG,              0x6000E060
+.equ APB_TSENS_WAKE_REG,               0x6000E064
+.equ APB_TSENS_SAMPLE_REG,             0x6000E068
+.equ APB_SARADC_CTRL_DATE_REG,         0x6000E3FC
 ######################################################
