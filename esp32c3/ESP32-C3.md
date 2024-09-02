@@ -50,42 +50,35 @@ Clock frequency of up to 160 MHz
 | SPI1               | 0x6000_2000 |
 | SPI0               | 0x6000_3000 |
 | GPIO               | 0x6000_4000 |
-| FE2                | 0x6000_5000 |
-| FE                 | 0x6000_6000 |
-| TIMER              | 0x6000_7000 |
-| RTCCNTL            | 0x6000_8000 |
-| EFUSE              | 0x6000_8800 |
+| RTC_CNTL           | 0x6000_8000 |
 | IO_MUX             | 0x6000_9000 |
-| RTC_I2C            | 0x6000_E000 |
 | UART1              | 0x6001_0000 |
-| I2C_EXT            | 0x6001_3000 |
+| I2C                | 0x6001_3000 |
 | UHCI0              | 0x6001_4000 |
 | RMT                | 0x6001_6000 |
 | LEDC               | 0x6001_9000 |
-| NRX                | 0x6001_CC00 |
-| BB                 | 0x6001_D000 |
-| TIMERGROUP0        | 0x6001_F000 |
-| TIMERGROUP1        | 0x6002_0000 |
+| EFUSE              | 0x6001_A000 | 
+| TIMG0              | 0x6001_F000 |
+| TIMG1              | 0x6002_0000 |
 | SYSTIMER           | 0x6002_3000 |
 | SPI2               | 0x6002_4000 |
-| SYSCON (APB)       | 0x6002_6000 |
+| SYSCON             | 0x6002_6000 |
 | TWAI               | 0x6002_B000 |
 | I2S0               | 0x6002_D000 |
 | AES                | 0x6003_A000 |
 | SHA                | 0x6003_B000 |
 | RSA                | 0x6003_C000 |
+| DS                 | 0x6003_D000 |
 | HMAC               | 0x6003_E000 |
-| DIGITAL_SIGNATURE  | 0x6003_D000 |
 | GDMA               | 0x6003_F000 |
-| SARADC             | 0x6004_0000 |
+| SAR_ADC            | 0x6004_0000 |
 | USB_SERIAL_JTAG    | 0x6004_3000 |
-| SYSTEM_REGS        | 0x600C_0000 |
-| SENSITIVE_REGS     | 0x600C_1000 |
+| SYSREG             | 0x600C_0000 |
+| PMS                | 0x600C_1000 |
 | INTERRUPT_MATRIX   | 0x600C_2000 |
-| CACHE (32k)        | 0x600C_4000 |
-| EXT_MEM_ENC_DEC    | 0x600C_C000 |
+| XTS_AES            | 0x600C_C000 |
 | ASSIST_DEBUG       | 0x600C_E000 |
-| WORLDC             | 0x600D_0000 |
+| WCL                | 0x600D_0000 |
 
 <br>
 
