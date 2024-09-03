@@ -38,12 +38,12 @@ clock_set_cpu_freq:
 clock_set_cpu_freq_xtal:
 
     # 5 MHz
-    li   t0, 20
+    li   t0, 5
     li   a1, 7
     beq  a0, t0, .LX0
 
     # 10 MHz
-    li   t0, 20
+    li   t0, 10
     li   a1, 3
     beq  a0, t0, .LX0
 
