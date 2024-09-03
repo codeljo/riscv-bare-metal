@@ -8,7 +8,7 @@
 .globl wdt_disable
 
 .equ WDT_WP_UNLOCK, 0x50D83AA1
-.equ WDT_WP_LOCK,   0xFFFFFFFF
+.equ SWD_UNLOCK,    0x8F1D312A
 
 .text
 
@@ -45,7 +45,7 @@ wdt_disable:
 
       # SWD - enable with auto feed
       li   t0, RTC_CNTL_SWD_WPROTECT_REG
-      li   t1, WDT_WP_UNLOCK
+      li   t1, SWD_UNLOCK
       sw   t1, (t0)
       # RTC_CNTL_SWD_CONF_REG (reset: 0x4B00000)
       li   t0, RTC_CNTL_SWD_CONF_REG
