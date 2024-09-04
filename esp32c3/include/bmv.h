@@ -98,3 +98,12 @@ void ws2812_write(int pin, unsigned int grbx);
 void wdt_feed();
 /* disable WDT */
 void wdt_disable();
+
+/////////////////////////////////////////////////////
+// ROM functions
+/////////////////////////////////////////////////////
+
+void rom_uart_tx(unsigned char);
+int rom_uart_rx(unsigned char*);
+int rom_printf(const char*, ...);
+//int printf(const char*, ...) __attribute__((weak));

@@ -51,6 +51,9 @@ SECTIONS {
 
 }
 
+PROVIDE(rom_uart_tx = 0x4000005C);
+PROVIDE(rom_uart_rx = 0x40000060);
+PROVIDE(rom_printf  = 0x40000028);
 
 /*
 
