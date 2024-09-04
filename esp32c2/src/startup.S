@@ -31,6 +31,8 @@ _start:
       li   a0, CPU_CLOCK_SPEED_MHZ
       call clock_set_cpu_freq
 
+      call uart_0_init
+
       call main
       j .
 

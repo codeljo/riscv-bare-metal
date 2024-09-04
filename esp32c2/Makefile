@@ -21,6 +21,11 @@ ifeq ($(CC),clang)
 else
 	CFLAGS  += -Wall -Wextra -march=rv32imc_zicsr -mabi=ilp32 -nostdlib -g -O
 endif
+
+ifeq ($(BMV_XTAL), 26)
+CFLAGS_EXTRA += -DXTAL_26MHZ
+endif
+
 LDFLAGS = -Wl,-T$(DIR_CHIP)/linker/esp32c2.ld
 
 # dirs
@@ -30,7 +35,7 @@ DIR_BUILD = ./build/
 
 # source
 SOURCES   = $(DIR_SRC)/startup.S $(DIR_SRC)/clock.S $(DIR_SRC)/gpio.S $(DIR_SRC)/interrupts.S $(DIR_SRC)/ivectors.S \
-			$(DIR_SRC)/pwm.S $(DIR_SRC)/systimer.S $(DIR_SRC)/wdt.S $(DIR_SRC)/ws2812.S
+			$(DIR_SRC)/pwm.S $(DIR_SRC)/systimer.S $(DIR_SRC)/wdt.S $(DIR_SRC)/uart.S $(DIR_SRC)/ws2812.S
 SOURCES  += $(SOURCES_EXTRA)
 
 # output file names
