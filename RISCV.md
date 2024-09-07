@@ -438,4 +438,5 @@ Misc
 [https://wiki.debian.org/RISC-V](https://wiki.debian.org/RISC-V)  
 [https://wiki.debian.org/RISC-V/32](https://wiki.debian.org/RISC-V/32)  
 [https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Options.html](https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Options.html)  
+[https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Function-Attributes.html](https://gcc.gnu.org/onlinedocs/gcc/RISC-V-Function-Attributes.html)  
 [https://github.com/riscv-non-isa/riscv-toolchain-conventions](https://github.com/riscv-non-isa/riscv-toolchain-conventions)  
